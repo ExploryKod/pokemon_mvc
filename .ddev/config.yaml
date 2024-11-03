@@ -5,7 +5,9 @@ php_version: "8.2"
 webserver_type: apache-fpm
 xdebug_enabled: false
 additional_hostnames: []
-additional_fqdns: []
+additional_fqdns: [
+  'local.pokemon.com'
+]
 database:
     type: mariadb
     version: "10.11"
@@ -19,7 +21,7 @@ web_environment: [
   "DB_NAME=db",
   "DB_DRIVER=mysql",
   "APP_ENV=local",
-  "APP_DEBUG=true",
+  "APP_DEBUG=true"
 ]
 corepack_enable: false
 web_extra_exposed_ports:

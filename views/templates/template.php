@@ -41,6 +41,7 @@ die();
       <script type="module" src="<?php echo $viteClient ?>" ></script>
       <script type="module" src="<?php echo $viteEntry ?>" ></script>
     <?php } ?>  
+    <?php vite_enqueue_script('assets/js/app.js', true); ?>
 </head>
 <body class="<?php echo $bodyId ?? "no-page" ?>">
 <?php require_once(__DIR__ . '/partials/header.php'); ?>

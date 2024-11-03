@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'vendor/autoload.php';
+require_once 'assets/includes/vite.inc.php';
 use Els\Factory\DatabaseFactory;
 use Els\Manager\PokemonPdoManager;
 use Els\Controllers\viewControllers\createPage;

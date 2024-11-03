@@ -141,3 +141,9 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+
+# vite js
+build
+/build
+dist
+
