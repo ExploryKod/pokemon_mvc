@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
                                  data-title="<?php echo $pokemon->getName() ?>">
                                 <div class="top-bar"></div>
                                 <div class="content">
-                                    <div class="image-wrapper"><img src="<?php echo 'src/assets/img/pokemons/' . $pokemon->getImage() . '.png' ?? 'pikachu' . '.png'; ?>" alt="<?php echo $pokemonName ?? "pikachu"; ?>"></div>
+                                    <div class="image-wrapper"><img src="<?php echo 'public/img/pokemons/' . $pokemon->getImage() . '.png' ?? 'pikachu' . '.png'; ?>" alt="<?php echo $pokemonName ?? "pikachu"; ?>"></div>
                                     <p><?php echo $pokemon->getName() ?? "" ?></p>
                                   
                                 </div>

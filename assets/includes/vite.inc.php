@@ -8,12 +8,15 @@ require_once 'variables.inc.php';
 
 function vite_fetch_asset_from_manifest($filePath) {
     $returnedArray = [];
-
+    var_dump('vite_fetch_asset_from_manifest');
     $fileName = basename($filePath);
-    $fileNameWithoutExtension = substr($fileName, 0, strrpos($fileName, '.'));
-    
+    var_dump("filename un vite fetch asset from manifest", $fileName);
+    echo "<br/>";
+    var_dump('manifest way', DIST_PATH . '/manifest.json');
     // Use manifest json to know which asset to enqueue
     if (file_exists(DIST_PATH . '/manifest.json')) {
+        var_dump("manifest exist >> ", DIST_PATH . '/manifest.json');
+        
         $manifest = json_decode(file_get_contents(DIST_PATH . '/manifest.json'), true);
 
         if (is_array($manifest)) {
@@ -80,6 +83,7 @@ function vite_enqueue_script($filePath, $inHead = false) {
         * ================================ Call assets like usual
         */
         $manifestFileInfos = vite_fetch_asset_from_manifest($filePath);
+        print_r($manifestFileInfos);
         if (!empty($manifestFileInfos)) {
             if (isset($manifestFileInfos['css'])) {
                 foreach ($manifestFileInfos['css'] as $cssPath) {

@@ -37,11 +37,9 @@ die();
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-    <?php if(isset($viteClient) && isset($viteEntry) && !empty($viteClient) && !empty($viteEntry)) { ?>
-      <script type="module" src="<?php echo $viteClient ?>" ></script>
-      <script type="module" src="<?php echo $viteEntry ?>" ></script>
-    <?php } ?>  
+
     <?php vite_enqueue_script('assets/js/app.js', true); ?>
+    <link rel="stylesheet" href='/assets/output.css' >
 </head>
 <body class="<?php echo $bodyId ?? "no-page" ?>">
 <?php require_once(__DIR__ . '/partials/header.php'); ?>

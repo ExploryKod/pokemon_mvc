@@ -19,7 +19,7 @@ const resolve = ($url) => {return path.resolve($url)}
  | Destination path
  |
  */
-const url = 'https://local.pokemon.com'
+const url = 'https://pokemon.ddev.site'
 const assetsPath = 'assets'
 const distPath = 'build'
 
@@ -405,8 +405,9 @@ export default defineConfig({
     port: 5173,
     https: false,
     open: false,
+    host: true,
     hmr: {
-      host: 'localhost'
+      host: true
     },
     watch: {
       usePolling: true

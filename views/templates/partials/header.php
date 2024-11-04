@@ -11,7 +11,7 @@ $siteUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HT
         <div class="row align-items-center mainRow g-lg-0">
             <div class="col-auto logo">
                 <a href="<?php echo $siteUrl ?>/#homepage" data-hash="#homepage">
-                    <img src="../../../src/assets/img/logo.svg" alt="Logo ELS-TOGO">
+                    <img src="/public/img/logo.svg" alt="Logo pokemon mvc">
                 </a>
             </div>
             <nav class="col nav">

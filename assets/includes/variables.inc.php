@@ -4,8 +4,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
     header('HTTP/1.0 403 Forbidden', true, 403);
     die();
 }
-define('IS_VITE_DEVELOPMENT', false);
-define('VITE_SERVER', 'http://localhost:5173');
+define('IS_VITE_DEVELOPMENT', true);
+define('VITE_SERVER', 'https://pokemon.ddev.site:5173');
 
 define('DIST_FOLDER', 'build');
 define('DIST_PATH', DIST_FOLDER);

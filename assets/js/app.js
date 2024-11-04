@@ -1,4 +1,5 @@
 import '../scss/style.scss';
+import '../style.css'
 import './script.js';
 // Prevent l'auto-reload on watch
 if(import.meta.hot) {
