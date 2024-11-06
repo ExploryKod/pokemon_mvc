@@ -1,4 +1,6 @@
 <?php
+
+//---- FACTORY
 $servername = getenv('DB_HOST');
 $username = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
@@ -11,18 +13,21 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch data from database
-$sql = "SELECT id, name, type FROM pokemons";
-$result = $conn->query($sql);
+// ----MODEL
+require_once './src/models/pokemonModel.php';
 
-if ($result->num_rows > 0) {
-  // Output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<h2>" . $row["name"]. "</h2><p>" . $row["type"] . "</p>";
-  }
-} else {
-  echo "0 results";
-}
+require_once './src/controllers/pokemon.controller.php';
 
-$conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
