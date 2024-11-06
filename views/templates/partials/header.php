@@ -22,8 +22,8 @@ $siteUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HT
                             <li class="menu__nav-item"><a data-hash="#nos-projets" href="<?php echo $siteUrl ?>/#nos-projets">Docs</a></li>
                         </ul>
                     </div>
-                    <div class="col-auto ms-lg-5">
-                        <a data-hash="#contact" href="<?php echo $siteUrl ?>/#contact" class="py-2 px-3 bg-purple-600 hover:bg-red-500 rounded els-text-lg text-white font-bold">Nous contacter</a>
+                    <div class="col-auto ms-lg-5 header-btn">
+                        <a data-hash="#contact" href="<?php echo $siteUrl ?>/#contact" class="py-2 px-3 bg-white hover:bg-red-500 rounded els-text-lg text-white font-bold">Nous contacter</a>
                     </div>
                 </div>
             </nav>

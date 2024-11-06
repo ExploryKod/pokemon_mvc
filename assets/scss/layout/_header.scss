@@ -13,7 +13,7 @@
   padding: var(--header-padding);
   transition: all 300ms ease-in-out;
   transition-property: padding, height;
-  background-color: $white;
+  background-color: rebeccapurple;
   box-shadow: 0 3px 6px #00000029;
   font-family: $font-montserrat;
   text-align: center;
@@ -128,7 +128,7 @@
 
       a {
         transition: color 200ms ease-in-out;
-        color: $gray-700;
+        color: $white;
         font-size: 15px;
         font-weight: $fw-light;
 
@@ -227,4 +227,10 @@
 .active-header-link {
   text-decoration: underline;
   color: $tertiary;
+}
+
+.header-btn {
+  a {
+    text-decoration: none;
+  }
 }

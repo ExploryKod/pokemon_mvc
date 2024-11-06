@@ -3,12 +3,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
 header('HTTP/1.0 403 Forbidden', TRUE, 403);
 die();
-} 
-
-    $hostname = $_SERVER['DDEV_HOSTNAME'];
-    $viteClient = $_SERVER['DDEV_HOSTNAME'] ? "https://{$hostname}:5173/@vite/client" : "";
-    $viteEntry = $_SERVER['DDEV_HOSTNAME'] ? "https://{$hostname}:5173/src/assets/main.js" : "";
-    
+}   
 ?>
 
 <!DOCTYPE html>

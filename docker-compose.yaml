@@ -13,3 +13,28 @@ services:
       - ./:/var/www/html
     tty: true
     container_name: pokemon_web
+  db:
+    image: mariadb:latest  # Use the latest MariaDB image
+    ports:
+      - "3307:3306"         # Expose MariaDB on the default port
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}  # Root password
+      MYSQL_DATABASE: ${DB_NAME}           # Default database to create
+      MYSQL_USER: ${DB_USER}               # Database user
+      MYSQL_PASSWORD: ${DB_PASSWORD}       # User's password
+    volumes:
+      - mariadb_data:/var/lib/mysql        # Persist data in a named volume
+      - ./database/db.sql:/docker-entrypoint-initdb.d/db.sql # Load SQL dump on startup
+    restart: always
+    container_name: pokemon_db
+  adminer:
+    container_name: pokemon_adminer
+    image: adminer
+    restart: always
+    ports:
+      - "8091:8080"
+    depends_on:
+      - db
+
+volumes:
+  mariadb_data:

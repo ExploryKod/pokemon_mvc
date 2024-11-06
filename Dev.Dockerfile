@@ -44,16 +44,19 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 RUN composer install
 
 # Node.js 18
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
 
-#Install project dependencies
-RUN npm install
+# Enable Corepack and install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# Install dependencies and build with pnpm
+RUN pnpm install --frozen-lockfile
 
 #Run the Webpack build (modify the command according to your needs)
-RUN npm run build
+RUN pnpm run build
 
-RUN npx tailwindcss -i ./src/assets/style.css -o ./src/assets/output.css --watch
+RUN npx tailwindcss -i ./assets/style.css -o ./assets/output.css --watch
 
 RUN composer dump-autoload
 
@@ -64,6 +67,14 @@ EXPOSE 80
 ENV URL "http://localhost:8000"
 ENV BASE_SITE_URL "http://localhost:8000"
 ENV HOST_URL="localhost"
+
+ENV DB_HOST="db"
+ENV DB_USER="root"
+ENV DB_PORT="3307"
+ENV DB_PASSWORD="root"
+ENV DB_NAME="db"
+ENV DB_DRIVER="mysql"
+ENV VITE_HOST_URL="https://local.pokemon.com"
 
 # Run apache when the container launches
 CMD ["apache2-foreground"]

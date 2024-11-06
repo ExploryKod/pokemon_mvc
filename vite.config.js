@@ -19,7 +19,7 @@ const resolve = ($url) => {return path.resolve($url)}
  | Destination path
  |
  */
-const url = 'https://pokemon.ddev.site'
+const url = process.env.HOST_URL;
 const assetsPath = 'assets'
 const distPath = 'build'
 
