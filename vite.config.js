@@ -19,7 +19,7 @@ const resolve = ($url) => {return path.resolve($url)}
  | Destination path
  |
  */
-const url = process.env.HOST_URL;
+const url = process.env.VITE_HOST_URL;
 const assetsPath = 'assets'
 const distPath = 'build'
 

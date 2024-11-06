@@ -4,6 +4,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
 header('HTTP/1.0 403 Forbidden', TRUE, 403);
 die();
 }   
+
+if(isset($_SERVER['DDEV_HOSTNAME'])) {
+    $hostname = $_SERVER['DDEV_HOSTNAME'];
+    $viteClient = $_SERVER['DDEV_HOSTNAME'] ? "https://{$hostname}:5173/@vite/client" : "";
+    $viteEntry = $_SERVER['DDEV_HOSTNAME'] ? "https://{$hostname}:5173/src/assets/main.js" : "";
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +41,14 @@ die();
             crossorigin=""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 
-    <?php vite_enqueue_script('assets/js/app.js', true); ?>
+
+    <?php if(isset($viteClient) && isset($viteEntry) && !empty($viteClient) && !empty($viteEntry)) { ?>
+        <script type="module" src="<?php echo $viteClient ?>" ></script>
+        <script type="module" src="<?php echo $viteEntry ?>" ></script>
+    <?php } else { 
+        vite_enqueue_script('assets/js/app.js', true); 
+    } ?>
+    
     <link rel="stylesheet" href='/assets/output.css' >
 </head>
 <body class="<?php echo $bodyId ?? "no-page" ?>">
