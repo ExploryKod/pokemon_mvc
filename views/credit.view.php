@@ -14,7 +14,7 @@ die();
     <div class="px-5 flex  flex-col gap-3">
         <div class="flex flex-col gap-3">
             <h2 class="text-lg">Images des pokemons</h2>
-            <p>Ces images libre de droit proviennent de <a href="https://www.stickpng.com/cat/games/pokemon?page=1">Ce site</a>
+            <p>Ces images libre de droit proviennent de <a class="underline text-blue-600 hover:text-red-800" href="https://www.stickpng.com/cat/games/pokemon?page=1">Ce site</a>
         </div>
     </div>
 </main>
