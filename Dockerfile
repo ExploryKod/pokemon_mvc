@@ -49,9 +49,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 #Install project dependencies
 RUN npm install --legacy-peer-deps
 
-#Run the Webpack build (modify the command according to your needs)
-RUN npm run build
-
 RUN npx tailwindcss -i ./assets/style.css -o ./assets/output.css 
 
 RUN composer dump-autoload
