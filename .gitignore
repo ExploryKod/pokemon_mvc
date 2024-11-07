@@ -3,7 +3,7 @@
 .env.test.local
 .env.production.local
 .env.local
-
+build
 vendor
 /vendor
 node_modules

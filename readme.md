@@ -6,6 +6,8 @@ Vous trouvez ici une explication de notre refactorisation et le processus pour i
 - Amaury Franssen
 - Nassim Assiaoui
 
+Site mis en production en ligne sur render.com (avec Docker) : [Consulter le site]("https://pokemon-mvc.onrender.com/")
+
 ### Refactorisation
 
 #### Notre structure MVC et ses particularités
