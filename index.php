@@ -40,7 +40,6 @@ try {
         $page = $url[0];
     }
 
-    //$siteUrl = getenv("ELS_SITE_URL") ?? "https://els-togo.ddev.site:8443";
     $siteUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
 
     switch ($page) {

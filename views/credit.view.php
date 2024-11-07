@@ -5,7 +5,7 @@ die();
 }
 ?>
 
-<main class="container flex flex-col gap-3">
+<main class="container flex flex-col gap-3 min-h-screen">
     <div class="flex flex-col gap-3">
         <div class="mx-auto">
             <h1 class="text-lg font-bold text-center">Images utilisées sur le site </h1>

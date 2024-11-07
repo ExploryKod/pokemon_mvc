@@ -738,6 +738,10 @@ video {
   max-width: 56rem;
 }
 
+.max-w-\[800px\] {
+  max-width: 800px;
+}
+
 .max-w-screen-2xl {
   max-width: 1536px;
 }
@@ -1208,7 +1212,7 @@ video {
   * Custom css for layout
   */
 
-.page-home {
+main {
   flex: 1;
   overflow: hidden;
   padding-top: var(--header-height);

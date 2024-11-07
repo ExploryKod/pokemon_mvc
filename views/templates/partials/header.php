@@ -3,7 +3,7 @@
         <div class="row flex items-center h-full">
             <!-- Logo Section -->
             <div class="col-auto logo h-full mr-12 px-0" style="padding: var(--header-logo-padding);">
-                <a href="<?php echo $siteUrl ?>/#homepage" data-hash="#homepage">
+                <a href="/#homepage" data-hash="#homepage">
                     <img class="h-[80px] w-auto" src="/public/img/logo.svg" alt="Logo pokemon mvc">
                 </a>
             </div>
@@ -12,8 +12,7 @@
                 <div class="flex items-center justify-end w-full">
                     <!-- Header Menu -->
                     <ul class="flex flex-row gap-8 lg:flex-row lg:space-x-8 p-0 m-0 list-none text-white">
-                        <li class="menu__nav-item"><a href="<?php echo $siteUrl ?>/#qui-sommes-nous" class="transition duration-200 hover:text-gray-400">Qui sommes-nous ?</a></li>
-                        <li class="menu__nav-item"><a href="<?php echo $siteUrl ?>/#nos-projets" class="transition duration-200 hover:text-gray-400">Docs</a></li>
+                        <li class="menu__nav-item"><a href="/#homepage" class="transition duration-200 hover:text-gray-400">Pokemons</a></li>
                     </ul>
                     <!-- Call-to-Action Button -->
                     <div class="ml-5">

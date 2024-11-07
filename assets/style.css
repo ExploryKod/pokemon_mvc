@@ -178,7 +178,7 @@
   /*
   * Custom css for layout
   */
-  .page-home {
+  main {
     flex: 1;
     overflow: hidden;
     padding-top: var(--header-height);

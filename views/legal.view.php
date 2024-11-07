@@ -2,15 +2,15 @@
     header('HTTP/1.0 403 Forbidden', TRUE, 403);
     die();
 } ?>
-<main>
+<main class="min-h-screen">
 <div className="mx-auto px-5 container">
-      <div className="bg-white shadow-md mx-auto my-5 p-6 rounded-lg max-w-4xl">
+      <div className="mx-auto max-w-[800px] bg-white shadow-md mx-auto my-5 p-6 rounded-lg max-w-4xl">
         <h1 className="mb-4 font-bold text-3xl text-gray-800">Fausses Mentions Légales</h1>
         
         <section className="mb-6">
           <h2 className="mb-2 font-semibold text-gray-700 text-xl">Éditeur du site</h2>
           <p className="text-gray-600">
-            <strong>DJIF Communication</strong>, société de présentation des pokemon, est une société SAS au capital social de 0 euros, dont le siège social est situé au 
+            <strong>MVC Pokemon</strong>, société de présentation des pokemon avec une architecture MVC, est une société SAS au capital social de 0 euros, dont le siège social est situé au 
             <span className="inline not-italic">nulle part</span>.
             <br />Elle est immatriculée au Registre du Commerce et des Sociétés de nulle part sous le numéro 000000.
           </p>

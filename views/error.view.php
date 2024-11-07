@@ -3,7 +3,7 @@
     die();
 } ?>
 
-<main class="error-page page">
+<main class="error-page page min-h-screen">
     <section>
         <div class="container">
             <div class="row mainRow">
