@@ -53,7 +53,7 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # Install dependencies and build with pnpm
 RUN pnpm install --frozen-lockfile
 
-RUN npx tailwindcss -i ./assets/style.css -o ./assets/output.css --watch
+RUN npx tailwindcss -i ./assets/style.css -o ./assets/output.css
 
 RUN composer dump-autoload
 
