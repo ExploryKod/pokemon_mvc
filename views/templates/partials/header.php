@@ -3,8 +3,8 @@
         <div class="row flex items-center h-full">
             <!-- Logo Section -->
             <div class="col-auto logo h-full mr-12 px-0" style="padding: var(--header-logo-padding);">
-                <a class="w-[150px]" href="<?php echo $siteUrl ?>/#homepage" data-hash="#homepage">
-                    <img src="/public/img/logo.svg" alt="Logo pokemon mvc" class="h-full w-auto">
+                <a href="<?php echo $siteUrl ?>/#homepage" data-hash="#homepage">
+                    <img class="h-[80px] w-auto" src="/public/img/logo.svg" alt="Logo pokemon mvc">
                 </a>
             </div>
             <!-- Navigation Section -->

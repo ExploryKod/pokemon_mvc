@@ -68,7 +68,7 @@ docker compose up -d --build
 Puis aller sur `localhost:8091` pour accéder à adminer et importez le dump présent dans `database/db.sql`
 
 puis pour avoir le style : 
-```bash
+```sh
 docker compose exec php-dev npx tailwindcss -i ./assets/style.css -o ./assets/output.css
 ```
 Acceptez l'installation demandé de tailwind (taper Entrer) et le style sera compilé.

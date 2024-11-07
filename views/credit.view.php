@@ -5,23 +5,16 @@ die();
 }
 ?>
 
-<main class="container">
-    <div class="mt-5 row">
-        <div class="col-12">
-            <h1 class="pre-title pre-title--centered">Images utilisées sur le site </h1>
+<main class="container flex flex-col gap-3">
+    <div class="flex flex-col gap-3">
+        <div class="mx-auto">
+            <h1 class="text-lg font-bold text-center">Images utilisées sur le site </h1>
         </div>
     </div>
-    <div class="mt-5 row">
-        <div class="col-12 col-md-6">
-            <h2 class="els-text-lg"></h2>
-            <ul class="els-list">
-               
-            </ul>
-        </div>
-        <div class="col-12 col-md-6">
-            <ul class="els-list">
-               
-            </ul>
+    <div class="flex  flex-col gap-3">
+        <div class="">
+            <h2 class="text-lg">Images des pokemons</h2>
+            <p>Ces images libre de droit proviennent de <a href="https://www.stickpng.com/cat/games/pokemon?page=1">Ce site</a>
         </div>
     </div>
 </main>
