@@ -3,12 +3,12 @@
     die();
 }
 ?>
-<footer class="els-footer bg-teal-500 text-white text-sm p-2.5">
-    <div class="container mx-auto">
+<footer class="bg-teal-500 text-white text-sm p-2.5">
+    <div class="container mx-auto max-w-[1200px]">
         <div class="mainRow flex flex-col-reverse lg:flex-row gap-y-5 lg:justify-between lg:items-center">
             <div class="text-center lg:text-left">
                 <span>&copy;</span> Amaury Franssen & Nassim Assiaoui - 2024 Pokemon MVC - Evaluation Ynov
-            </div> 
+            </div>
             <div>
                 <ul class="footer-list flex flex-col items-center sm:flex-row gap-5 list-none p-0">
                     <li class="text-xs modal-open-btn"><a href="/legal">Mentions légales</a></li>

@@ -5,14 +5,14 @@ die();
 }
 ?>
 
-<main class="container flex flex-col gap-3 min-h-screen">
+<main class="container flex flex-col gap-3 min-h-screen mx-auto">
     <div class="flex flex-col gap-3">
         <div class="mx-auto">
             <h1 class="text-lg font-bold text-center">Images utilisées sur le site </h1>
         </div>
     </div>
-    <div class="flex  flex-col gap-3">
-        <div class="">
+    <div class="px-5 flex  flex-col gap-3">
+        <div class="flex flex-col gap-3">
             <h2 class="text-lg">Images des pokemons</h2>
             <p>Ces images libre de droit proviennent de <a href="https://www.stickpng.com/cat/games/pokemon?page=1">Ce site</a>
         </div>

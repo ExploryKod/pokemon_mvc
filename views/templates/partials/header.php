@@ -1,5 +1,5 @@
 <header class="mainHeader fixed top-0 left-0 right-0 z-[500] bg-purple-700 shadow-lg text-center transition-all duration-300 ease-in-out" style="height: var(--header-height); padding: var(--header-padding);">
-    <div class="container mx-auto">
+    <div class="container mx-auto max-w-[1200px]">
         <div class="row flex items-center h-full">
             <!-- Logo Section -->
             <div class="col-auto logo h-full mr-12 px-0" style="padding: var(--header-logo-padding);">

@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 
 use Pokemon\Factory\DatabaseFactory;
 use Pokemon\Manager\PokemonPdoManager;
-use Pokemon\Controllers\viewControllers\createPage;
+use Pokemon\Controllers\createPage;
 
 $lang = "fr";
 $pokemons = [];

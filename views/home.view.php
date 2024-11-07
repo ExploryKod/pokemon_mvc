@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
 }
 ?>
 
-<main id="homepage" class="<?php echo $page_css_id ?? "" ?> min-h-screen max-w-screen-2xl">
+<main id="homepage" class="<?php echo $page_css_id ?? " ?> mx-auto min-h-screen max-w-screen-2xl">
     <section id="qui-sommes-nous" class="mx-auto container flex flex-col items-center justify-center">
             <div class="my-5 flex flex-col gap-3 items-center justify-center">
                 <h1 class="text-xl font-bold text-center">Notre équipe de pokemons</h1>
