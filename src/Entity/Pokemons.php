@@ -1,5 +1,5 @@
 <?php
-namespace Els\Entity;
+namespace Pokemon\Entity;
 
 class Pokemons extends BaseEntity
 {

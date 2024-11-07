@@ -1,8 +1,8 @@
 <?php
 
-namespace Els\Manager;
+namespace Pokemon\Manager;
 
-use Els\Interfaces\Database;
+use Pokemon\Interfaces\Database;
 
 abstract class PdoBaseManager
 {

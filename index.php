@@ -2,12 +2,14 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'vendor/autoload.php';
-require_once 'assets/includes/vite.inc.php';
-use Els\Factory\DatabaseFactory;
-use Els\Manager\PokemonPdoManager;
-use Els\Controllers\viewControllers\createPage;
+
+use Pokemon\Factory\DatabaseFactory;
+use Pokemon\Manager\PokemonPdoManager;
+use Pokemon\Controllers\viewControllers\createPage;
+
 $lang = "fr";
 $pokemons = [];
+
 try {
    
     $conn = new DatabaseFactory(

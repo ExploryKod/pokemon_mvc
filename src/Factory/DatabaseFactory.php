@@ -1,8 +1,8 @@
 <?php
 
-namespace Els\Factory;
+namespace Pokemon\Factory;
 
-use Els\Interfaces\Database;
+use Pokemon\Interfaces\Database;
 
 class DatabaseFactory implements Database
 {

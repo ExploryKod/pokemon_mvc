@@ -1,15 +1,14 @@
 <?php
-namespace Els\Controllers;
+namespace Pokemon\Controllers;
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
     header('HTTP/1.0 403 Forbidden', TRUE, 403);
     die();
 }
 
-use Els\Router\Route;
-use Els\Manager\PokemonPdoManager;
+use Pokemon\Manager\PokemonPdoManager;
 
 class HomeController extends BaseController {
-    #[Route(path: '/', method: 'GET', name: 'home')]
+
     public function index(): void {
 
         $pokemonsManager = new PokemonPdoManager($this->getConnection());

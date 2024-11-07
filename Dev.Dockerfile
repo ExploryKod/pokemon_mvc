@@ -53,9 +53,6 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # Install dependencies and build with pnpm
 RUN pnpm install --frozen-lockfile
 
-#Run the Webpack build (modify the command according to your needs)
-RUN pnpm run build
-
 RUN npx tailwindcss -i ./assets/style.css -o ./assets/output.css --watch
 
 RUN composer dump-autoload
@@ -74,7 +71,6 @@ ENV DB_PORT="3307"
 ENV DB_PASSWORD="root"
 ENV DB_NAME="db"
 ENV DB_DRIVER="mysql"
-ENV VITE_HOST_URL="https://local.pokemon.com"
 
 # Run apache when the container launches
 CMD ["apache2-foreground"]

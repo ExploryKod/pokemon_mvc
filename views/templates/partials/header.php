@@ -1,40 +1,33 @@
-<?php if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
-    header('HTTP/1.0 403 Forbidden', TRUE, 403);
-    die();
-} ?>
-<?php
-$siteUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
-
-?>
-<header class="mainHeader">
-    <div class="container">
-        <div class="row align-items-center mainRow g-lg-0">
-            <div class="col-auto logo">
+<header class="mainHeader fixed top-0 left-0 right-0 z-[500] bg-purple-700 shadow-lg text-center transition-all duration-300 ease-in-out" style="height: var(--header-height); padding: var(--header-padding);">
+    <div class="container mx-auto">
+        <div class="row flex items-center h-full">
+            <!-- Logo Section -->
+            <div class="col-auto logo h-full mr-12 px-0" style="padding: var(--header-logo-padding);">
                 <a href="<?php echo $siteUrl ?>/#homepage" data-hash="#homepage">
-                    <img src="/public/img/logo.svg" alt="Logo pokemon mvc">
+                    <img src="/public/img/logo.svg" alt="Logo pokemon mvc" class="h-full w-auto">
                 </a>
             </div>
-            <nav class="col nav">
-                <div class="row nav-and-cta g-lg-0">
-                    <div class="col-auto me-lg-3">
-                        <ul class="header-menu">
-                            <li class="menu__nav-item"><a data-hash="#qui-sommes-nous" href="<?php echo $siteUrl ?>/#qui-sommes-nous">Qui sommes-nous ?</a></li>
-                            <li class="menu__nav-item"><a data-hash="#nos-projets" href="<?php echo $siteUrl ?>/#nos-projets">Docs</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-auto ms-lg-5 header-btn">
-                        <a data-hash="#contact" href="<?php echo $siteUrl ?>/#contact" class="py-2 px-3 bg-white hover:bg-red-500 rounded els-text-lg text-white font-bold">Nous contacter</a>
+            <!-- Navigation Section -->
+            <nav class="col flex-1 hidden lg:flex">
+                <div class="flex items-center justify-end w-full">
+                    <!-- Header Menu -->
+                    <ul class="flex flex-row gap-8 lg:flex-row lg:space-x-8 p-0 m-0 list-none text-white">
+                        <li class="menu__nav-item"><a href="<?php echo $siteUrl ?>/#qui-sommes-nous" class="transition duration-200 hover:text-gray-400">Qui sommes-nous ?</a></li>
+                        <li class="menu__nav-item"><a href="<?php echo $siteUrl ?>/#nos-projets" class="transition duration-200 hover:text-gray-400">Docs</a></li>
+                    </ul>
+                    <!-- Call-to-Action Button -->
+                    <div class="ml-5">
+                        <a href="<?php echo $siteUrl ?>/#contact" data-hash="#contact" class="py-2 px-4 bg-white text-purple-700 font-bold rounded hover:bg-purple-600 hover:text-white transition">Nous contacter</a>
                     </div>
                 </div>
             </nav>
-            <div class="col-auto burger-menu">
-                <button class="burger-menu__button" aria-label="Menu">
-                    <svg viewBox="0 0 100 100">
-                        <path class="line line1"
-                              d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-                        <path class="line line2" d="M 20,50 H 80" />
-                        <path class="line line3"
-                              d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+            <!-- Burger Menu for Mobile -->
+            <div class="col-auto lg:hidden">
+                <button class="burger-menu__button flex p-0 bg-transparent border-0 cursor-pointer" aria-label="Menu">
+                    <svg viewBox="0 0 100 100" class="h-10 w-10">
+                        <path class="line line1 transition-all duration-500 ease-in-out" d="M 20,29 H 80 C 80,29 94.5,28.8 94.5,66.7 94.5,78 90.97,81.67 85.26,81.67 79.55,81.67 75,75 75,75 L 25,25"></path>
+                        <path class="line line2 transition-all duration-500 ease-in-out" d="M 20,50 H 80"></path>
+                        <path class="line line3 transition-all duration-500 ease-in-out" d="M 20,71 H 80 C 80,71 94.5,71.2 94.5,33.3 94.5,22 90.97,18.33 85.26,18.33 79.55,18.33 75,25 75,25 L 25,75"></path>
                     </svg>
                 </button>
             </div>

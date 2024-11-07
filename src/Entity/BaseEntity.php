@@ -1,9 +1,9 @@
 <?php
 // Le traits hydrator permet de itérer directement sur tout les setter et getter qui seront dans le param de cette class
 
-namespace Els\Entity;
+namespace Pokemon\Entity;
 
-use Els\Traits\Hydrator;
+use Pokemon\Traits\Hydrator;
 
 abstract class BaseEntity
 {

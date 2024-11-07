@@ -1,3 +1,193 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+:root {
+    --scrollbarsize: 17px;
+    --screen-size: calc(100vw - var(--scrollbarsize, 0px));
+    --header-height: 70px;
+    --header-padding: 5px 15px;
+    --header-logo-padding: 5px 0;
+  
+    /* Sections */
+    --section-padding-top: 40px;
+    --section-padding-bottom: 40px;
+    --section-margin-top: 0;
+    --section-margin-bottom: 0;
+  
+    /* Titles */
+    --pre-title-size: 30px;
+    --title-xl-size: 40px;
+    --title-lg-size: 35px;
+    --text-xs-size: 14px;
+    --text-size: 18px;
+    --text-xl-size: 20px;
+    --font-list-size: 18px;
+  }
+  
+  /* Media Query: md and up */
+  @media (min-width: 768px) {
+    :root {
+      --title-xl-size: 40px;
+      --title-lg-size: 35px;
+    }
+  }
+  
+  /* Media Query: lg and up */
+  @media (min-width: 992px) {
+    :root {
+      --header-height: 90px;
+      --header-padding: 10px;
+      --header-logo-padding: 0;
+      --title-xl-size: 35px;
+      --title-lg-size: 30px;
+    }
+  }
+  
+  /* Media Query: xl and up */
+  @media (min-width: 1200px) {
+    :root {
+      --header-height: 110px;
+      --header-padding: 15px;
+      --header-logo-padding: 0;
+      --title-xl-size: 40px;
+      --title-lg-size: 35px;
+    }
+  }
+  
+  /* State Colors */
+  :root {
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    --color-success: #28a745;
+    --color-rgb-danger: 220, 53, 69;
+    --color-rgb-warning: 255, 193, 7;
+    --color-rgb-info: 23, 162, 184;
+    --color-rgb-success: 40, 167, 69;
+  }
+  
+  /* Colors */
+  :root {
+    --color-primary: #004aad;
+    --color-primary-darken: #003c91;
+    --color-primary-08: rgba(0, 74, 173, 0.8);
+    --color-secondary: #0036a3;
+    --color-secondary-darken: #002b8a;
+    --color-secondary-08: rgba(0, 54, 163, 0.8);
+    --color-tertiary: #00ad9c;
+    --color-tertiary-darken: #009387;
+    --color-tertiary-08: rgba(0, 173, 156, 0.8);
+    --color-gray-100: #f6f6f6;
+    --color-gray-200: #e5e5e5;
+    --color-gray-300: #d4d4d4;
+    --color-gray-400: #a3a3a3;
+    --color-gray-500: #727673;
+    --color-gray-600: #525252;
+    --color-gray-700: #404040;
+    --color-gray-800: #262626;
+    --color-gray-900: #171717;
+    --color-white: #fff;
+    --color-black: #262c28;
+    --text-color: #a3a3a3;
+    --input-color: #a3a3a3;
+    --bg-color: #f6f6f6;
+  }
+  
+  /* Spacing */
+  :root {
+    --spacing-base: 1.875rem; /* calculate-rem(30px) */
+  }
+  
+  /* Font Sizes */
+  :root {
+    --font-level-16: 1rem; /* calculate-rem(16px) */
+  }
+  
+  /* Theme Colors */
+  :root {
+    --els-primary: #004aad;
+    --els-secondary: #0036a3;
+    --els-tertiary: #00ad9c;
+  }
+  
+  /* Breakpoints */
+  :root {
+    --els-breakpoint-xs: 0;
+    --els-breakpoint-sm: 576px;
+    --els-breakpoint-md: 768px;
+    --els-breakpoint-lg: 992px;
+    --els-breakpoint-xl: 1200px;
+    --els-breakpoint-xxl: 1440px;
+    --els-breakpoint-fhd: 1700px;
+  }
+  
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --nomotion: none;
+    }
+  }
+  
+  /* Container Max Widths */
+  @media (min-width: 576px) {
+    :root {
+      --els-container-max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    :root {
+      --els-container-max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    :root {
+      --els-container-max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    :root {
+      --els-container-max-width: 1140px;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    :root {
+      --els-container-max-width: 1320px;
+    }
+  }
+  
+  @media (min-width: 1700px) {
+    :root {
+      --els-container-max-width: 1440px;
+    }
+  }
+  
+  /* Custom VW for Large Screens */
+  @media (min-width: 2000px) {
+    :root {
+      --custom-vw: 2000px;
+    }
+  }
+  
+  /*
+  * Custom css for layout
+  */
+  .page-home {
+    flex: 1;
+    overflow: hidden;
+    padding-top: var(--header-height);
+  }
+  
+  .page-home section {
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+  }
+    
+ 
+  

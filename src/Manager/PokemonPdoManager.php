@@ -1,9 +1,9 @@
 <?php
-namespace Els\Manager;
+namespace Pokemon\Manager;
 
-use Els\Entity\Pokemons;
-use Els\Manager\PdoBaseManager;
-use Els\Traits\Hydrator;
+use Pokemon\Entity\Pokemons;
+use Pokemon\Manager\PdoBaseManager;
+use Pokemon\Traits\Hydrator;
 
 class PokemonPdoManager extends pdoBaseManager
 {

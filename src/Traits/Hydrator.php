@@ -1,6 +1,6 @@
 <?php
 
-namespace Els\Traits;
+namespace Pokemon\Traits;
 
 trait Hydrator
 {
