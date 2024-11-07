@@ -1,22 +1,35 @@
 # Pokemon MVC - Evaluation Ynov 
 
+Vous trouvez ici une explication de notre refactorisation et le processus pour installer le projet.
+
 ### Etudiants Master web fullstack
 - Amaury Franssen
 - Nassim Assiaoui
 
 ### Refactorisation
->- Refactorisation du projet en POO : plus aisé à maintenir et meilleure lisibilité
->- Passage de mysqli à PDO pour plus de sécurité
->- Création d'un traits pour créer les entités (usage du concept de composition)
->- Ajout d'un router simple dans index.php
+
+#### Notre structure MVC et ses particularités
 >- Structuration avec le Model View Controller (Model et Controller se trouvent dans src/)
+>- Ajout d'un router simple dans index.php et création d'un traits pour générer les entités miroir de la BDD selon un pattern strict en camel case (ex: getId).
+
 >- La partie "model" au sens large regroupe les dossiers "manager" et "entity"
->- La partie "controller" 
 >- Ajout du design pattern Factory pour la connexion à la BDD.
 >- Ajout d'entités (ou models selon certaines sémantique): une seule entité "pokemon" lié à la table pokemon.
+
+>- La partie "controller": se fait via une classe abstraite et createPage qui créer tout type de page.
+>- De ce fait l'index garde un rôle de controller partiel en reliant tout mais n'est pas confondu avec les vues ou le model donc on reste dans la séparation MVC.
+
+>- Particularité : en réalité, notre router dans l'index joue aussi un rôle partiel de controller dans notre cas (appel des données du model en collaboration avec le controller CreatePage).
+>- Raison: c'est plus facile à maintenir pour les équipes ne connaissant pas tous la POO, il suffira ici d'utiliser les blocs du router et non recréer une class de controller pour créer une nouvelle page et sa donnée.
+
+
+#### Autres aspects
+>- Refactorisation du projet en POO : plus aisé à maintenir et meilleure lisibilité
+>- Passage de mysqli à PDO pour plus de sécurité
+
 >- Typage partiel du projet aux endroits critiques avec création d'une interface
 >- Devops : création d'un environnement de dev prêt à l'emploi avec ddev (permet de créer des conteneurs isolés).
-   
+
 ## Installation
 Voici les instructions d'installation du projet localement.
 
