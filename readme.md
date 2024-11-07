@@ -22,6 +22,8 @@ Vous trouvez ici une explication de notre refactorisation et le processus pour i
 >- Particularité : en réalité, notre router dans l'index joue aussi un rôle partiel de controller dans notre cas (appel des données du model en collaboration avec le controller CreatePage).
 >- Raison: c'est plus facile à maintenir pour les équipes ne connaissant pas tous la POO, il suffira ici d'utiliser les blocs du router et non recréer une class de controller pour créer une nouvelle page et sa donnée.
 
+>- Toutes nos vues sont dans views avec une distinction entre template de base, parties communes et les pages proprement dites.
+>- Le controller s'appuie sur ces vue pour les générer avec la donnée.
 
 #### Autres aspects
 >- Refactorisation du projet en POO : plus aisé à maintenir et meilleure lisibilité
