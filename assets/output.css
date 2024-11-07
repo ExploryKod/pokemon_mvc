@@ -706,6 +706,10 @@ video {
   width: 6rem;
 }
 
+.w-\[150px\] {
+  width: 150px;
+}
+
 .w-\[350px\] {
   width: 350px;
 }

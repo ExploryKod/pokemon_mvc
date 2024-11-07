@@ -3,7 +3,7 @@
         <div class="row flex items-center h-full">
             <!-- Logo Section -->
             <div class="col-auto logo h-full mr-12 px-0" style="padding: var(--header-logo-padding);">
-                <a href="<?php echo $siteUrl ?>/#homepage" data-hash="#homepage">
+                <a class="w-[150px]" href="<?php echo $siteUrl ?>/#homepage" data-hash="#homepage">
                     <img src="/public/img/logo.svg" alt="Logo pokemon mvc" class="h-full w-auto">
                 </a>
             </div>
@@ -17,7 +17,9 @@
                     </ul>
                     <!-- Call-to-Action Button -->
                     <div class="ml-5">
-                        <a href="<?php echo $siteUrl ?>/#contact" data-hash="#contact" class="py-2 px-4 bg-white text-purple-700 font-bold rounded hover:bg-purple-600 hover:text-white transition">Nous contacter</a>
+                        <a href="mailto:contact.pokemon@yuamail.com" class="py-2 px-4 bg-white text-purple-700 font-bold rounded hover:bg-purple-600 hover:text-white transition">
+                            Nous contacter
+                        </a>
                     </div>
                 </div>
             </nav>

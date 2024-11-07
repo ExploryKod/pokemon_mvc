@@ -21,8 +21,7 @@ web_environment: [
   "DB_NAME=db",
   "DB_DRIVER=mysql",
   "APP_ENV=local",
-  "APP_DEBUG=true",
-  "VITE_HOST_URL=https://pokemon.ddev.site"
+  "APP_DEBUG=true"
 ]
 corepack_enable: false
 web_extra_exposed_ports:

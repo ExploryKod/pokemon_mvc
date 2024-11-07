@@ -61,9 +61,17 @@ Pour installer les dépendances si elles ne le sont pas déjà :
 En cas de besoin de (re)générer l'autoload (php): `ddev composer dump-autoload`
 
 ## Si vous utilisez notre configuration avec docker :
-```
+```bash
 docker compose up -d --build
 ```
+
+Puis aller sur `localhost:8091` pour accéder à adminer et importez le dump présent dans `database/db.sql`
+
+puis pour avoir le style : 
+```bash
+docker compose exec php-dev npx tailwindcss -i ./assets/style.css -o ./assets/output.css
+```
+Acceptez l'installation demandé de tailwind (taper Entrer) et le style sera compilé.
 
 ## Si vous utilisez votre configuration personnelle locale (avec ou sans docker) :
 - Le dump de la bdd mysql est dans `database/db.sql`
