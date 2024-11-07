@@ -39,6 +39,15 @@ fi
 
 echo "ddev setup and database import completed successfully!"
 
-ddev npm install
-ddev npm run dev
+echo "install dependency..."
+ddev composer install
+ddev composer dump-autoload
+ddev pnpm install
 
+# Apply style
+echo "Trigger tailwind..."
+ddev exec npx tailwindcss -i ./assets/style.css -o ./assets/output.css -y
+if [ $? -ne 0 ]; then
+  echo "ddev tailwind failed failed. Exiting."
+  exit 1
+fi
