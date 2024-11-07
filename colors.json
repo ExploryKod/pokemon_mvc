@@ -1,0 +1,12 @@
+[{
+  "paletteName": "Els-togo",
+  "swatches": [
+    { "name": "primary", "color": "#004aad" },
+    { "name": "primary darken", "color": "004AADFF" },
+    { "name": "secondary", "color": "#0036a3" },
+    { "name": "tertiary", "color": "#00AD9C" },
+    { "name": "tertiary-darken", "color": "#00AD9CFF" },
+    { "name": "horizon", "color": "#B2C8E6FF" },
+    { "name": "horizon-darken", "color": "#B2C8E6FF" }
+  ]
+}]

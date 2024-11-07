@@ -1,0 +1,35 @@
+services:
+  php-dev:
+    build:
+      context: .
+      dockerfile: Dev.Dockerfile
+    ports:
+      - '8000:80'
+      - '4430:443'
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - ./:/var/www/html
+    tty: true
+    container_name: pokemon_web
+  db:
+    image: mariadb:latest  # Use the latest MariaDB image
+    ports:
+      - "3307:3306"         # Expose MariaDB on the default port
+    volumes:
+      - mariadb_data:/var/lib/mysql        # Persist data in a named volume
+      - ./database/db.sql:/docker-entrypoint-initdb.d/db.sql # Load SQL dump on startup
+    restart: always
+    container_name: pokemon_db
+  adminer:
+    container_name: pokemon_adminer
+    image: adminer
+    restart: always
+    ports:
+      - "8091:8080"
+    depends_on:
+      - db
+
+volumes:
+  mariadb_data:

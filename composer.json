@@ -1,0 +1,12 @@
+{
+  "name": "pokemon/ynov",
+  "description": "",
+  "autoload": {
+    "psr-4": {
+      "Pokemon\\": "src/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*"
+  }
+}

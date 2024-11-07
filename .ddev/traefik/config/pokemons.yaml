@@ -1,0 +1,139 @@
+#ddev-generated
+
+http:
+  routers:
+    
+    
+    pokemons-phpmyadmin-80-http:
+      
+      rule: HostRegexp(`pokemons.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "pokemons-phpmyadmin-80-http"
+      tls: false
+      entrypoints:
+        - http-8036
+    
+    
+    
+    pokemons-web-80-http:
+      
+      rule: HostRegexp(`pokemons.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "pokemons-web-80-http"
+      tls: false
+      entrypoints:
+        - http-8080
+    
+    
+    pokemons-web-8025-http:
+      
+      rule: HostRegexp(`pokemons.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "pokemons-web-8025-http"
+      tls: false
+      entrypoints:
+        - http-8025
+    
+    
+    
+    
+    
+    pokemons-phpmyadmin-80-https:
+      
+      rule: HostRegexp(`pokemons.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "pokemons-phpmyadmin-80-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-8037
+    
+    
+    
+    
+    pokemons-web-80-https:
+      
+      rule: HostRegexp(`pokemons.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "pokemons-web-80-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-8443
+    
+    
+    pokemons-web-8025-https:
+      
+      rule: HostRegexp(`pokemons.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "pokemons-web-8025-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-8026
+    
+    
+
+  # autodetect won't be needed in Traefik 3 https://github.com/traefik/traefik/pull/9546
+  middlewares:
+    autodetect:
+      contentType:
+        autoDetect: false
+
+  services:
+    
+    pokemons-phpmyadmin-80-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-pokemons-phpmyadmin:80
+    
+    pokemons-phpmyadmin-80-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-pokemons-phpmyadmin:80
+    
+    pokemons-web-80-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-pokemons-web:80
+    
+    pokemons-web-8025-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-pokemons-web:8025
+    
+    pokemons-web-80-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-pokemons-web:80
+    
+    pokemons-web-8025-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-pokemons-web:8025
+    
+
+
+tls:
+  certificates:
+    - certFile: /mnt/ddev-global-cache/traefik/certs/pokemons.crt
+      keyFile: /mnt/ddev-global-cache/traefik/certs/pokemons.key
+
