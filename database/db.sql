@@ -7,7 +7,7 @@ CREATE TABLE pokemons (
 );
 
 INSERT INTO pokemons (image, name, type) VALUES ('bulbizarre','Bulbizarre', 'Plante/Poison');
-INSERT INTO pokemons (image, name, type) VALUES ('herbizarre','Herbizarre', 'Plante/Poison');
+INSERT INTO pokemons (image, name, type) VALUES ('papilusion','Papilusion', 'Insecte');
 INSERT INTO pokemons (image, name, type) VALUES ('florizarre','Florizarre', 'Plante/Poison');
 INSERT INTO pokemons (image, name, type) VALUES ('evoli','Évoli', 'Normal');
 INSERT INTO pokemons (image, name, type) VALUES ('octillery','octillery', 'Eau');
