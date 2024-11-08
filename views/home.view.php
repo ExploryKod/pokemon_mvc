@@ -3,6 +3,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
     header('HTTP/1.0 403 Forbidden', TRUE, 403);
     die();
 }
+
 ?>
 
 <main id="homepage" class="<?php echo $page_css_id ?? "" ?> mx-auto min-h-screen max-w-screen-2xl">
@@ -26,6 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
                     </div>
                     <div class="box-footer mt-1">
                         <p class="text-center"><?php echo $pokemon->getType() ?? "" ?></p>
+                        <div class="mt-2 w-full flex gap-2 bg-red-600">
+                            <a href="" class="text-red-500">
+                                <img class="text-red-500 w-[20px] h-auto" src="/public/img/icones/trash-2.svg"  alt="delete"/>
+                            </a>
+                            <img class="text-blue-500 w-[20px] h-auto" src="/public/img/icones/square-pen.svg"  alt="modify"/>
+                        </div>
                     </div>
                 </div>
 

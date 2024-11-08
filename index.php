@@ -3,25 +3,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'vendor/autoload.php';
 
-use Pokemon\Factory\DatabaseFactory;
-use Pokemon\Manager\PokemonPdoManager;
 use Pokemon\Controllers\createPage;
+use Pokemon\Controllers\Pokemons\ReadPokemons;
 
 $lang = "fr";
 $pokemons = [];
 
 try {
 
-    $conn = new DatabaseFactory(
-        getenv('DB_HOST'),
-        getenv('DB_PORT'),
-        getenv('DB_NAME'),
-        getenv('DB_USER'),
-        getenv('DB_PASSWORD')
-    );
 
-  $pokemonsManager = new PokemonPdoManager($conn);
-  $pokemons = $pokemonsManager->getPokemons();
 
 
 } catch (\Exception $e) {
@@ -31,6 +21,7 @@ try {
 }
 
 $mainController = new createPage();
+$pokemons = new ReadPokemons();
 
 try {
     if (empty($_GET['page'])) {
@@ -55,7 +46,7 @@ try {
                 "template" => "views/templates/template.php",
                 "siteUrl" => $siteUrl || "localhost:8080",
                 "data" => [
-                  "pokemons" => $pokemons
+                  "pokemons" => $pokemons->getPokemons()
                 ]
             ];
 
@@ -89,6 +80,13 @@ try {
             ];
             $mainController->setPageData($pageData);
             break;
+        case 'delete-pokemon':
+            if($GET['id']) {
+                $pokemonId = filter_var($GET['id'], FILTER_SANITIZE_NUMBER_INT);
+                $pokemonsManager->deletePokemon($pokemonId);
+                header('Location: /?success=pokemon-deleted');
+                exit();
+            }
         default:
             throw new Exception("La page n'existe pas");
     }
