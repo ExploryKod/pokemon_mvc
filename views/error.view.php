@@ -1,6 +1,7 @@
 <?php if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
     header('HTTP/1.0 403 Forbidden', TRUE, 403);
     die();
+   
 } ?>
 
 <main class="error-page page mx-auto">
@@ -9,13 +10,20 @@
             <div class="row mainRow">
                 <div class="col-12">
                     <div class="content">
-                        <h1>404</h1>
-                        <h2><?= !empty($data['message']) && strlen($data['message']) < 25 ? htmlspecialchars($data['message']) : "Page non trouvée" ?></h2>
+                        <h1><?= $data["type"] ?? "Oups..." ?></h1>
+                        <?= !empty($data['message']) && $data["type"] === "404" ? "<h2>Page non trouvée</h2>" : "<p class='!my-2'>Nous avons rencontré un problème</p>" ?>
+                        <?php if($data["message"]) { ?>
+                            <div class="!h-[80px] max-w-[400px] w-full !overflow-auto">
+                                <p class="!mt-2 !mb-2 py-1 text-blue-700 text-sm"><?= $data["message"] ?></p>
+                            </div>
+                        <?php }?>
                         <a href="/" class="button button--secondary">Retour vers l'accueil</a>
                     </div>
                     <img class="error-img" src="https://images.pexels.com/photos/7957992/pexels-photo-7957992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 </div>
             </div>
+           
+         
         </div>
     </section>
 </main>

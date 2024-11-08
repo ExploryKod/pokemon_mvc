@@ -19,21 +19,21 @@ class UpdatePokemonsManager extends BaseManager {
                     switch ($key) {
                         case 'pokemonName':
                             $pokemonName = $args['pokemonName'];
-                            $query = $this->pdo->prepare("UPDATE pokemon SET name = :pokemonName WHERE id=:pokemonId ");
+                            $query = $this->pdo->prepare("UPDATE pokemons SET name = :pokemonName WHERE id=:pokemonId ");
                             $query->bindValue("pokemonName", $pokemonName, \PDO::PARAM_STR);
                             $query->bindValue("pokemonId", $pokemonId, \PDO::PARAM_STR);
                             $query->execute();
                             break;
                         case 'type':
                             $type = $args['type'];
-                            $query = $this->pdo->prepare("UPDATE pokemon SET type = :type WHERE id=:pokemonId ");
+                            $query = $this->pdo->prepare("UPDATE pokemons SET type = :type WHERE id=:pokemonId ");
                             $query->bindValue("type", $type, \PDO::PARAM_STR);
                             $query->bindValue("pokemonId", $pokemonId, \PDO::PARAM_STR);
                             $query->execute();
                             break;
                         case 'image':
                             $image = $args['image'];
-                            $query = $this->pdo->prepare("UPDATE pokemon SET image = :image WHERE id=:pokemonId ");
+                            $query = $this->pdo->prepare("UPDATE pokemons SET image = :image WHERE id=:pokemonId ");
                             $query->bindValue("image", $image, \PDO::PARAM_STR);
                             $query->bindValue("userId", $pokemonId, \PDO::PARAM_STR);
                             $query->execute();

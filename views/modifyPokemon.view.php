@@ -14,6 +14,10 @@ if($_GET['id'] !== null && $_GET['id'] !== "") {
     $pokemonName = $data['pokemon']->getName();
     $pokemonType = $data['pokemon']->getType();
     $pokemonImage = $data['pokemon']->getImage();
+    $availableImages = $data['availableImages'] ?? [];
+} else {
+    header('Location: /?message=pokemon_not_found');
+    exit();
 }
 
 ?>
@@ -23,7 +27,7 @@ if($_GET['id'] !== null && $_GET['id'] !== "") {
             <div class="my-5 flex flex-col gap-3 items-center justify-center">
                 <h1 class="text-xl font-bold text-center">Modifier <?= $pokemonName ?></h1>
             </div>
-            <div class="mx-auto flex justify-between gap-5"> 
+            <div class="mx-auto flex justify-between gap-24"> 
                 <article class="group/card relative w-[350px] h-[350px] bg-white flex flex-col justify-center items-center 
                 p-5 rounded-lg shadow-md transition-colors duration-300 ease-in hover:bg-yellow-500"
                     data-title="<?php echo  $pokemonName ?>">
@@ -40,24 +44,32 @@ if($_GET['id'] !== null && $_GET['id'] !== "") {
                         <p class="text-center"><?php echo $pokemonType ?? "" ?></p>
                     </div>
                 </article>
-                <aside>
-                    <form class="max-w-[600px] flex flex-col gap-4" method="post" action="/update-pokemon">
+                <aside class="flex flex-col h-[350px]">
+                    <form class="max-w-[600px] flex flex-col h-full gap-4" method="post" action="/update-pokemon">
                         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']?>">
                         <input type="hidden" name="pokemon-id" value="<?php echo $pokemonId ?>">
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
                             <input type="text" id="name" name="pokemon-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<?php echo $pokemonName?? ""?>">
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
                             <input type="text" id="type" name="type" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<?php echo $pokemonType?? ""?>">
-                            </div>
-                            <div class="flex justify-center">
-                                <button type="submit" name="update-pokemon"
-                                class="inline-flex justify-center items-center px-5 py-3 border border-transparent text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition duration-300 ease-in-out">
-                                    Modifier
-                                </button>
-                            </div>
+                        </div>
+                        <!-- <div class="mb-3 grow flex flex-col gap-3">
+                            <label for="image-select">Choisir une des images disponibles:</label>
+                            <select class="!text-purple-800 !bg-slate-200 !py-3 !px-2 rounded"  name="image" id="image-select">
+                                <?php foreach ($availableImages as $key => $value): ?>
+                                <option class="!text-purple-800 !bg-slate-200 rounded" value="<?= $key ?>"><?= $value ?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div> -->
+                        <div class="flex flex-col mb-2">
+                            <button type="submit" name="update-pokemon"
+                            class="block justify-center items-center px-5 py-3 border border-transparent text-sm 
+                            font-medium text-white button w-full rounded hover:bg-blue-700 transition duration-300 ease-in-out">
+                                Modifier
+                            </button>
                         </div>
                     </form>
                 </aside>

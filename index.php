@@ -28,6 +28,13 @@ try {
   echo "Database connection error: " . $errorMessage;
 }
 
+$availableImages = [
+    "pikachu" => "Pikachu", 
+    "bulbizarre" => "Bulbizarre", 
+    "carapuce" => "Carapuce", 
+    "florizarre" => "Florizarre"
+];
+
 $mainController = new createPage();
 $pokemons = new ReadPokemons($pdoConn);
 $updatePokemon = new UpdatePokemonsController($pdoConn);
@@ -79,12 +86,14 @@ try {
                 "siteUrl" => $siteUrl || "localhost:8080",
                 "data" => [
                     "csrf_token" => $_SESSION['csrf_token'],
-                    "pokemon" => $pokemons->getPokemonById($selectedPokemonId)
+                    "pokemon" => $pokemons->getPokemonById(intval($selectedPokemonId)),
+                    "availableImages" => $availableImages
                 ]
             ];
             $mainController->setPageData($pageData);
             break;
         case 'update-pokemon':
+            var_dump($_POST);
             $updatePokemon->updatePokemon();
             break;
          
@@ -133,7 +142,7 @@ try {
         "bodyId" => 'route-error',
         "page_css_id" => 'page-error',
         "meta" => [
-            "page_title" => "Erreur 404 - Pokemon MVC",
+            "page_title" => "Erreur - Pokemon MVC",
             "page_description" => 'Pokemon MVC - erreur 404',
         ],
         "view" => 'views/error.view.php',
@@ -141,7 +150,8 @@ try {
         "siteUrl" => $siteUrl,
         "data" => [
             "css-footer" => "els-footer--fixed",
-            "message" => $e->getMessage()
+            "message" => $e->getMessage(),
+            "type" => "404"
         ]
     ];
     $mainController->pageError($pageData);
