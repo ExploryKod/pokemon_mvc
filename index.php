@@ -1,18 +1,25 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'vendor/autoload.php';
-
+use Pokemon\Factory\PDOFactory;
 use Pokemon\Controllers\createPage;
 use Pokemon\Controllers\Pokemons\ReadPokemons;
+use Pokemon\Controllers\Pokemons\DeletePokemons;
 
 $lang = "fr";
 $pokemons = [];
 
 try {
 
-
-
+    $pdoConn = new PDOFactory(
+        getenv('DB_HOST'),
+        getenv('DB_PORT'),
+        getenv('DB_NAME'),
+        getenv('DB_USER'),
+        getenv('DB_PASSWORD')
+    );
 
 } catch (\Exception $e) {
   $errorMessage = $e->getMessage();
@@ -22,6 +29,7 @@ try {
 
 $mainController = new createPage();
 $pokemons = new ReadPokemons();
+$deletePokemons = new DeletePokemons($pdoConn);
 
 try {
     if (empty($_GET['page'])) {
@@ -35,6 +43,7 @@ try {
 
     switch ($page) {
         case '':
+            $_SESSION['csrf_token'] = $mainController->generateCsrfToken();
             $pageData = [
                 "bodyId" => 'route-home',
                 "page_css_id" => 'page-home',
@@ -46,6 +55,7 @@ try {
                 "template" => "views/templates/template.php",
                 "siteUrl" => $siteUrl || "localhost:8080",
                 "data" => [
+                  "csrf_token" => $_SESSION['csrf_token'],
                   "pokemons" => $pokemons->getPokemons()
                 ]
             ];
@@ -81,12 +91,13 @@ try {
             $mainController->setPageData($pageData);
             break;
         case 'delete-pokemon':
-            if($GET['id']) {
-                $pokemonId = filter_var($GET['id'], FILTER_SANITIZE_NUMBER_INT);
-                $pokemonsManager->deletePokemon($pokemonId);
-                header('Location: /?success=pokemon-deleted');
+            if($_POST['id']) {
+                $deletePokemons->deleteById();
+            } else {
+                header('Location: /?error="pokemon-no-id');
                 exit();
             }
+            break;
         default:
             throw new Exception("La page n'existe pas");
     }

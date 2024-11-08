@@ -57,4 +57,9 @@ class createPage
         $page_content = ob_get_clean();
         require_once($template);
     }
+
+    public function generateCsrfToken()
+    {
+        return bin2hex(random_bytes(32));
+    }
 }

@@ -9,16 +9,24 @@ if($_SESSION['csrf_token'] !== $data['csrf_token']) {
     exit();
 }
 
+if($_GET['id'] !== null && $_GET['id'] !== "") {
+
+    $pokemonId = $data['pokemon']->getId();
+    $pokemonName = $data['pokemon']->getName();
+    $pokemonType = $data['pokemon']->getType();
+    $pokemonImage = $data['pokemon']->getImage();
+    $page_css_id = "edit-pokemon-page";
+}
+
 ?>
 
 <main id="homepage" class="<?php echo $page_css_id ?? "" ?> mx-auto min-h-screen max-w-screen-2xl">
     <section id="qui-sommes-nous" class="mx-auto container flex flex-col items-center justify-center">
             <div class="my-5 flex flex-col gap-3 items-center justify-center">
-                <h1 class="text-xl font-bold text-center">Notre équipe de pokemons</h1>
-                <p class="text-lg text-center">Des pokemons prêt à servir de guide</p>
+                <h1 class="text-xl font-bold text-center">Modifier un pokemon</h1>
+                <p class="text-lg text-center">Modifier [nom du pokemon]</p>
             </div>
-            <div class="mx-auto flex flex-wrap justify-center gap-5">
-            <?php if(!empty($data)) foreach($data["pokemons"] as $pokemon) { ?>
+            <div class="mx-auto flex flex-wrap justify-center gap-5">       
                 <div class="group/card relative w-[350px] h-[350px] bg-white flex flex-col justify-center items-center 
                 p-5 rounded-lg shadow-md transition-colors duration-300 ease-in hover:bg-yellow-500"
                     data-title="<?php echo $pokemon->getName() ?>">
@@ -58,8 +66,8 @@ if($_SESSION['csrf_token'] !== $data['csrf_token']) {
                         </div>
                     </div>
                 </div>
-             
-                    <?php } ?>
             </div>
     </section>
 </main>
+
+

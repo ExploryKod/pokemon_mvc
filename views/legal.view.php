@@ -3,12 +3,12 @@
     die();
 } ?>
 <main class="min-h-screen mx-auto max-w-[1200px]">
-<div className="mx-auto px-5 container">
-      <div className="my-5 mx-auto max-w-[800px] bg-white shadow-md mx-auto my-5 p-6 rounded-lg max-w-4xl">
+  <div className="mx-auto px-5 container" style="margin-top:40px">
+      <div className="mx-auto max-w-[800px] bg-white shadow-md mx-auto p-6 rounded-lg max-w-4xl">
         <h1 className="mb-4 font-bold text-3xl text-gray-800">Fausses Mentions Légales</h1>
 
-        <section className="my-5">
-          <h2 className="mb-2 font-semibold text-gray-700 text-xl">Éditeur du site</h2>
+        <section className="my-5" style="margin-top:20px">
+          <h2 className="mb-5 font-semibold text-gray-700 text-xl">Éditeur du site</h2>
           <p className="text-gray-600">
             <strong>MVC Pokemon</strong>, société de présentation des pokemon avec une architecture MVC, est une société SAS au capital social de 0 euros, dont le siège social est situé au
             <span className="inline not-italic">nulle part</span>.
@@ -21,7 +21,7 @@
 
         <section className="my-5">
           <h2 className="mb-2 font-semibold text-gray-700 text-xl">Directeur de la publication</h2>
-          <p className="text-gray-600">Amaury Franssen et Nassim Aissaoui</p>
+          <p className="text-gray-600">Amaury Franssen </p>
           <a href="mailto:">pokemon-fake@yuamail.com</a>
         </section>
 

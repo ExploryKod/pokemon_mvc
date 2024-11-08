@@ -16,7 +16,7 @@
                     </ul>
                     <!-- Call-to-Action Button -->
                     <div class="ml-5">
-                        <a href="mailto:contact.pokemon@yuamail.com" class="py-2 px-4 bg-white text-purple-700 font-bold rounded hover:bg-purple-600 hover:text-white transition">
+                        <a href="mailto:contact.pokemon@yuamail.com" class="py-2 px-4 bg-white text-purple-700 font-bold rounded hover:bg-yellow-500 hover:text-white transition">
                             Nous contacter
                         </a>
                     </div>
