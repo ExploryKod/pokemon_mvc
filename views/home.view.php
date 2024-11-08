@@ -19,7 +19,7 @@ if($_SESSION['csrf_token'] !== $data['csrf_token']) {
             </div>
             <div class="mx-auto flex flex-wrap justify-center gap-5">
             <?php if(!empty($data)) foreach($data["pokemons"] as $pokemon) { ?>
-                <div class="group/card relative w-[350px] h-[350px] bg-white flex flex-col justify-center items-center 
+                <div class="group/card relative w-[350px] h-[350px] bg-purple-100 flex flex-col justify-center items-center 
                 p-5 rounded-lg shadow-md transition-colors duration-300 ease-in hover:bg-yellow-500"
                     data-title="<?php echo $pokemon->getName() ?>">
                     <div class="top-bar absolute w-1/2 h-1 bg-blue-600 top-0 left-1/2 transform -translate-x-1/2 rounded-b-lg"></div>

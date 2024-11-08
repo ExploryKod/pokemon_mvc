@@ -10,12 +10,10 @@ if($_SESSION['csrf_token'] !== $data['csrf_token']) {
 }
 
 if($_GET['id'] !== null && $_GET['id'] !== "") {
-
     $pokemonId = $data['pokemon']->getId();
     $pokemonName = $data['pokemon']->getName();
     $pokemonType = $data['pokemon']->getType();
     $pokemonImage = $data['pokemon']->getImage();
-    $page_css_id = "edit-pokemon-page";
 }
 
 ?>
@@ -23,49 +21,46 @@ if($_GET['id'] !== null && $_GET['id'] !== "") {
 <main id="homepage" class="<?php echo $page_css_id ?? "" ?> mx-auto min-h-screen max-w-screen-2xl">
     <section id="qui-sommes-nous" class="mx-auto container flex flex-col items-center justify-center">
             <div class="my-5 flex flex-col gap-3 items-center justify-center">
-                <h1 class="text-xl font-bold text-center">Modifier un pokemon</h1>
-                <p class="text-lg text-center">Modifier [nom du pokemon]</p>
+                <h1 class="text-xl font-bold text-center">Modifier <?= $pokemonName ?></h1>
             </div>
-            <div class="mx-auto flex flex-wrap justify-center gap-5">       
-                <div class="group/card relative w-[350px] h-[350px] bg-white flex flex-col justify-center items-center 
+            <div class="mx-auto flex justify-between gap-5"> 
+                <article class="group/card relative w-[350px] h-[350px] bg-white flex flex-col justify-center items-center 
                 p-5 rounded-lg shadow-md transition-colors duration-300 ease-in hover:bg-yellow-500"
-                    data-title="<?php echo $pokemon->getName() ?>">
+                    data-title="<?php echo  $pokemonName ?>">
                     <div class="top-bar absolute w-1/2 h-1 bg-blue-600 top-0 left-1/2 transform -translate-x-1/2 rounded-b-lg"></div>
                     <div class="content flex flex-col justify-center items-center">
                         <div class="image-wrapper">
-                            <img src="<?php echo 'public/img/pokemons/' . $pokemon->getImage() . '.png' ?? 'pikachu' . '.png'; ?>"
+                            <img src="<?php echo 'public/img/pokemons/' . $pokemonImage . '.png' ?? 'pikachu' . '.png'; ?>"
                                 alt="<?php echo $pokemonName ?? "pikachu"; ?>"
                                 class="w-24 h-24 rounded-full object-cover object-top">
                         </div>
-                        <p class="text-primary mt-2 mb-3 text-sm font-semibold"><?php echo $pokemon->getName() ?? "" ?></p>
+                        <p class="text-primary mt-2 mb-3 text-sm font-semibold"><?php echo $pokemonName ?? "" ?></p>
                     </div>
                     <div class="box-footer mt-1">
-                        <p class="text-center"><?php echo $pokemon->getType() ?? "" ?></p>
-                        <div class="my-4 w-full flex gap-5 items-center justify-center">
-                            <form class="flex flex-col items-center justify-center" action="/delete-pokemon?id=<?= $pokemon->getId() ?>" method="POST">
-                                <input type="hidden" name="csrf_token" value="<?php echo $data['csrf_token'] ?>">
-                                <input type="hidden" name="id" value="<?php echo $pokemon->getId() ?>">
-                                <button class="inline border-none bg-transparent p-0" type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                                        fill="none" stroke="currentColor" stroke-width="2" 
-                                        stroke-linecap="round" stroke-linejoin="round" 
-                                        class="lucide lucide-trash-2 group-hover/card:text-white text-red-700 group-hover/card:hover:text-gray-800 ">
-                                        <path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-                                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                                        <line x1="10" x2="10" y1="11" y2="17"/>
-                                        <line x1="14" x2="14" y1="11" y2="17"/>
-                                    </svg>
-                                </button>
-                            </form>
-                            <a href="/modify-pokemon?id=<?php echo $pokemon->getId() ?>">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                class="group-hover/card:text-white text-blue-700  group-hover/card:hover:text-gray-800 lucide lucide-square-pen"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                                    <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/>
-                                </svg>
-                            </a>
-                        </div>
+                        <p class="text-center"><?php echo $pokemonType ?? "" ?></p>
                     </div>
-                </div>
+                </article>
+                <aside>
+                    <form class="max-w-[600px] flex flex-col gap-4" method="post" action="/update-pokemon">
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']?>">
+                        <input type="hidden" name="pokemon-id" value="<?php echo $pokemonId ?>">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
+                            <input type="text" id="name" name="pokemon-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<?php echo $pokemonName?? ""?>">
+                        </div>
+                        <div class="mb-4">
+                            <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
+                            <input type="text" id="type" name="type" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="<?php echo $pokemonType?? ""?>">
+                            </div>
+                            <div class="flex justify-center">
+                                <button type="submit" name="update-pokemon"
+                                class="inline-flex justify-center items-center px-5 py-3 border border-transparent text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition duration-300 ease-in-out">
+                                    Modifier
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </aside>
             </div>
     </section>
 </main>

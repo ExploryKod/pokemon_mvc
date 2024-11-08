@@ -30,7 +30,7 @@ class PokemonManager extends BaseManager
      */
     public function getPokemonById(int $id): ?Pokemons
     {
-        $getPokemonReq = $this->pdo->prepare("SELECT id, name, type FROM pokemons WHERE id = :id");
+        $getPokemonReq = $this->pdo->prepare("SELECT id, image, name, type FROM pokemons WHERE id = :id");
         $getPokemonReq->execute(['id' => $id]);
 
         $data = $getPokemonReq->fetch(\PDO::FETCH_ASSOC);

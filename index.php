@@ -7,6 +7,7 @@ use Pokemon\Factory\PDOFactory;
 use Pokemon\Controllers\createPage;
 use Pokemon\Controllers\Pokemons\ReadPokemons;
 use Pokemon\Controllers\Pokemons\DeletePokemons;
+use Pokemon\Controllers\Pokemons\UpdatePokemonsController;
 
 $lang = "fr";
 $pokemons = [];
@@ -28,7 +29,8 @@ try {
 }
 
 $mainController = new createPage();
-$pokemons = new ReadPokemons();
+$pokemons = new ReadPokemons($pdoConn);
+$updatePokemon = new UpdatePokemonsController($pdoConn);
 $deletePokemons = new DeletePokemons($pdoConn);
 
 try {
@@ -62,6 +64,30 @@ try {
 
             $mainController->setPageData($pageData);
             break;
+        case 'modify-pokemon':
+            $_SESSION['csrf_token'] = $mainController->generateCsrfToken();
+            $selectedPokemonId = $_GET['id'];
+            $pageData = [
+                "bodyId" => 'route-modify',
+                "page_css_id" => 'modify-pokemon',
+                "meta" => [
+                    "page_title" => 'Pokemon MVC',
+                    "page_description" => 'Refactoring to fit MVC architecture',
+                ],
+                "view" => 'views/modifyPokemon.view.php',
+                "template" => "views/templates/template.php",
+                "siteUrl" => $siteUrl || "localhost:8080",
+                "data" => [
+                    "csrf_token" => $_SESSION['csrf_token'],
+                    "pokemon" => $pokemons->getPokemonById($selectedPokemonId)
+                ]
+            ];
+            $mainController->setPageData($pageData);
+            break;
+        case 'update-pokemon':
+            $updatePokemon->updatePokemon();
+            break;
+         
         case 'legal':
             $pageData = [
                 "bodyId" => $page,

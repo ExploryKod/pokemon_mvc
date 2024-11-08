@@ -5,17 +5,22 @@ use Pokemon\Manager\Pokemons\PokemonManager;
 
 class ReadPokemons {
 
+    private PDOFactory $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
     public function getPokemons() {
-        $conn = new PDOFactory(
-            getenv('DB_HOST'),
-            getenv('DB_PORT'),
-            getenv('DB_NAME'),
-            getenv('DB_USER'),
-            getenv('DB_PASSWORD')
-        );
-    
-      $pokemonsManager = new PokemonManager($conn);
+      $pokemonsManager = new PokemonManager($this->conn);
       $pokemons = $pokemonsManager->getPokemons();
+      return $pokemons;
+    }
+
+    public function getPokemonById(int $id) {
+    
+      $pokemonsManager = new PokemonManager($this->conn);
+      $pokemons = $pokemonsManager->getPokemonById($id);
       return $pokemons;
     }
 }

@@ -4,7 +4,13 @@ use Pokemon\Factory\PDOFactory;
 use Pokemon\Manager\Pokemons\PokemonManager;
 use Pokemon\Manager\Pokemons\UpdatePokemonsManager;
 
-class UpdatePokemon {
+class UpdatePokemonsController {
+
+    private PDOFactory $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
 
     public function updatePokemon()
     {
@@ -14,9 +20,9 @@ class UpdatePokemon {
             if (isset($_POST['update-pokemon'])) {
 
                 $pokemonName =  filter_input(INPUT_POST, "pokemon-name");
-                $pokemonFormId = intval(htmlspecialchars($_POST['pokemonId']));
-                $pokemonManager = new PokemonManager(new PDOFactory());
-                $updateManager = new UpdatePokemonsManager(new PDOFactory());
+                $pokemonFormId = intval(htmlspecialchars($_POST['pokemon-id']));
+                $pokemonManager = new PokemonManager($this->conn);
+                $updateManager = new UpdatePokemonsManager($this->conn);
                 $pokemon = $pokemonManager->getPokemonById($pokemonFormId);
 
                 if($pokemon) {
@@ -34,7 +40,7 @@ class UpdatePokemon {
 
                     $updateManager->updatePokemon($pokemonFormId, $pokemonName, $args);
                     
-                    header('Location: \?success=updatepokemon');
+                    header("Location: \modify-pokemon?id=' . $pokemonFormId . '");
                     exit();
                 } else {
                     header('Location: \?error=nopokemontoupdate');
