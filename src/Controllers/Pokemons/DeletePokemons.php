@@ -1,11 +1,11 @@
 <?php
 namespace Pokemon\Controllers\Pokemons;
 use Pokemon\Factory\PDOFactory;
-use Pokemon\Controllers\AbstractController;
+use Pokemon\Controllers\createPage;
 use Pokemon\Entity\Pokemons;
 use Pokemon\Manager\Pokemons\PokemonManager;
 
-class DeletePokemons extends AbstractController {
+class DeletePokemons extends createPage {
 
     private PDOFactory $conn;
 
