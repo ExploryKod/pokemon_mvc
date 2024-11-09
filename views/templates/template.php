@@ -30,6 +30,7 @@ die();
 <?php require_once(__DIR__ . '/partials/header.php'); ?>
 <?= $page_content ?? "Aucun contenu de page trouvé" ?>
 <?php require_once(__DIR__ . '/partials/footer.php'); ?>
-<script src="/assets/js/script.js"></script> 
+<script src="assets/lib/jquery/jquery-3.7.1.min.js"></script>
+<script type="module" src="/assets/js/script.js"></script>
 </body>
 </html>

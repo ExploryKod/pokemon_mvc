@@ -45,7 +45,7 @@ if($_GET['id'] !== null && $_GET['id'] !== "") {
                     </div>
                 </article>
                 <aside class="flex flex-col h-[350px]">
-                    <form class="max-w-[600px] flex flex-col h-full gap-4" method="post" action="/update-pokemon">
+                    <form class="max-w-[600px] flex flex-col h-full gap-4" method="post" action="/crud-modify-pokemon">
                         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']?>">
                         <input type="hidden" name="pokemon-id" value="<?php echo $pokemonId ?>">
                         <div class="mb-3">

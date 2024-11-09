@@ -22,6 +22,7 @@ class UpdatePokemonsController extends createPage {
             if (isset($_POST['update-pokemon'])) {
                 var_dump('enter update');
                 $pokemonName =  filter_input(INPUT_POST, "pokemon-name");
+                $pokemonFormImage =  filter_input(INPUT_POST, "image");
                 $pokemonFormId =  filter_input(INPUT_POST, "pokemon-id");
                 $pokemonManager = new PokemonManager($this->conn);
                 $updateManager = new UpdatePokemonsManager($this->conn);
@@ -32,7 +33,8 @@ class UpdatePokemonsController extends createPage {
                     $updateFeed = [
                         'pokemonName' => filter_input( INPUT_POST, "pokemon-name") ?? null,
                         'image' => filter_input( INPUT_POST, "image") ?? null,
-                        'type' => filter_input( INPUT_POST, "type") ?? null
+                        'type' => filter_input( INPUT_POST, "type") ?? null,
+                        'extension' => 'png'
                     ];
                     foreach($updateFeed as $key => $value) {
                         if($value !== null) {

@@ -39,6 +39,10 @@ fi
 
 echo "ddev setup and database import completed successfully!"
 
+echo "install phpmyadmin..."
+ddev add-on get ddev/ddev-phpmyadmin
+echo "Successfully installed phpmyadmin in ddev"
+
 echo "install dependency..."
 ddev composer install
 ddev composer dump-autoload
@@ -51,3 +55,5 @@ if [ $? -ne 0 ]; then
   echo "ddev tailwind failed failed. Exiting."
   exit 1
 fi
+
+ddev describe

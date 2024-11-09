@@ -7,6 +7,7 @@ class Pokemons extends BaseEntity
     private string $image = "";
     private string $name = "";
     private string $type = "";
+    private string $extension = "png";
 
     /**
      * @return int|null
@@ -77,6 +78,24 @@ class Pokemons extends BaseEntity
     public function setType(string $type): Pokemons
     {
         $this->type = $type;
+        return $this;
+    }
+
+       /**
+     * @return string
+     */
+    public function getExtension(): string
+    {
+        return $this->extension;
+    }
+
+    /**
+     * @param string $type
+     * @return Pokemons
+     */
+    public function setExtension(string $extension): Pokemons
+    {
+        $this->extension = $extension;
         return $this;
     }
 }

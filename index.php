@@ -8,6 +8,7 @@ use Pokemon\Controllers\createPage;
 use Pokemon\Controllers\Pokemons\ReadPokemons;
 use Pokemon\Controllers\Pokemons\DeletePokemons;
 use Pokemon\Controllers\Pokemons\UpdatePokemonsController;
+use Pokemon\Controllers\Pokemons\CreatePokemonController;
 
 $lang = "fr";
 $pokemons = [];
@@ -39,6 +40,7 @@ $mainController = new createPage();
 $pokemons = new ReadPokemons($pdoConn);
 $updatePokemon = new UpdatePokemonsController($pdoConn);
 $deletePokemons = new DeletePokemons($pdoConn);
+$createPokemon = new CreatePokemonController($pdoConn);
 
 try {
     if (empty($_GET['page'])) {
@@ -73,27 +75,7 @@ try {
             break;
         case 'create-pokemon':
             $_SESSION['csrf_token'] = $mainController->generateCsrfToken();
-            case 'modify-pokemon':
-                $_SESSION['csrf_token'] = $mainController->generateCsrfToken();
-                $selectedPokemonId = $_GET['id'] ?? "";
-                $pageData = [
-                    "bodyId" => 'route-modify',
-                    "page_css_id" => 'modify-pokemon',
-                    "meta" => [
-                        "page_title" => 'Pokemon MVC',
-                        "page_description" => 'Refactoring to fit MVC architecture',
-                    ],
-                    "view" => 'views/pokemons/modifyPokemon.view.php',
-                    "template" => "views/templates/template.php",
-                    "siteUrl" => $siteUrl || "localhost:8080",
-                    "data" => [
-                        "csrf_token" => $_SESSION['csrf_token'],
-                        "pokemon" => $selectedPokemonId ? $pokemons->getPokemonById(intval($selectedPokemonId)) : "",
-                        "availableImages" => $availableImages
-                    ]
-                ];
-                $mainController->setPageData($pageData);
-                break;
+            $selectedPokemonId = $_GET['id'] ?? "";
             $pageData = [
                 "bodyId" => 'route-modify',
                 "page_css_id" => 'modify-pokemon',
@@ -101,16 +83,18 @@ try {
                     "page_title" => 'Pokemon MVC',
                     "page_description" => 'Refactoring to fit MVC architecture',
                 ],
-                "view" => 'views/pokemons/modifyPokemon.view.php',
+                "view" => 'views/pokemons/createPokemon.view.php',
                 "template" => "views/templates/template.php",
                 "siteUrl" => $siteUrl || "localhost:8080",
                 "data" => [
                     "csrf_token" => $_SESSION['csrf_token'],
-                    "pokemon" => $pokemons->getPokemonById(intval($selectedPokemonId)),
                     "availableImages" => $availableImages
                 ]
             ];
             $mainController->setPageData($pageData);
+            break;
+        case 'crud-create-pokemon':
+            $createPokemon->createNewPokemon();
             break;
         case 'modify-pokemon':
             $_SESSION['csrf_token'] = $mainController->generateCsrfToken();
@@ -133,11 +117,9 @@ try {
             ];
             $mainController->setPageData($pageData);
             break;
-        case 'update-pokemon':
-            var_dump($_POST);
+        case 'crud-modify-pokemon':
             $updatePokemon->updatePokemon();
             break;
-         
         case 'legal':
             $pageData = [
                 "bodyId" => $page,

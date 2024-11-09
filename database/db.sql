@@ -3,16 +3,17 @@ CREATE TABLE pokemons (
   id INT AUTO_INCREMENT PRIMARY KEY,
   image VARCHAR(255) NOT NULL,
   name VARCHAR(255) NOT NULL,
-  type VARCHAR(255) NOT NULL
+  type VARCHAR(255) NOT NULL,
+  extension VARCHAR(100) NOT NULL 
 );
 
-INSERT INTO pokemons (image, name, type) VALUES ('bulbizarre','Bulbizarre', 'Plante/Poison');
-INSERT INTO pokemons (image, name, type) VALUES ('papilusion','Papilusion', 'Insecte');
-INSERT INTO pokemons (image, name, type) VALUES ('florizarre','Florizarre', 'Plante/Poison');
-INSERT INTO pokemons (image, name, type) VALUES ('evoli','Évoli', 'Normal');
-INSERT INTO pokemons (image, name, type) VALUES ('octillery','octillery', 'Eau');
-INSERT INTO pokemons (image, name, type) VALUES ('dracaufeu','Dracaufeu', 'Feu/Vol');
-INSERT INTO pokemons (image, name, type) VALUES ('carapuce','Carapuce', 'Eau');
-INSERT INTO pokemons (image, name, type) VALUES ('tyranocif','Tyranocif', 'Roche/Ténèbre');
-INSERT INTO pokemons (image, name, type) VALUES ('pyroli','Pyroli', 'Feu');
-INSERT INTO pokemons (image, name, type) VALUES ('sabelette','Sabelette', 'Terre');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('bulbizarre','Bulbizarre', 'Plante/Poison', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('papilusion','Papilusion', 'Insecte', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('florizarre','Florizarre', 'Plante/Poison', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('evoli','Évoli', 'Normal', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('octillery','octillery', 'Eau', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('dracaufeu','Dracaufeu', 'Feu/Vol', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('carapuce','Carapuce', 'Eau', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('tyranocif','Tyranocif', 'Roche/Ténèbre', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('pyroli','Pyroli', 'Feu', 'png');
+INSERT INTO pokemons (image, name, type, extension) VALUES ('sabelette','Sabelette', 'Terre', 'png');

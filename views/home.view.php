@@ -22,12 +22,12 @@ if($_SESSION['csrf_token'] !== $data['csrf_token']) {
                 <div class="group/card relative w-[350px] h-[350px] bg-purple-100 flex flex-col justify-center items-center 
                 p-5 rounded-lg shadow-md transition-colors duration-300 ease-in hover:bg-yellow-500"
                     data-title="<?php echo $pokemon->getName() ?>">
-                    <div class="top-bar absolute w-1/2 h-1 bg-blue-600 top-0 left-1/2 transform -translate-x-1/2 rounded-b-lg"></div>
+                    <div class="top-bar absolute w-1/2 h-1 bg-purple-700 top-0 left-1/2 transform -translate-x-1/2 rounded-b-lg"></div>
                     <div class="content flex flex-col justify-center items-center">
                         <div class="image-wrapper">
                             <img src="<?php echo 'public/img/pokemons/' . $pokemon->getImage() . '.png' ?? 'pikachu' . '.png'; ?>"
                                 alt="<?php echo $pokemonName ?? "pikachu"; ?>"
-                                class="w-24 h-24 rounded-full object-cover object-top">
+                                class="w-24 h-24 bg-purple-200 border border-2 p-2 border-purple-700 rounded-full object-contain object-center">
                         </div>
                         <p class="text-primary mt-2 mb-3 text-sm font-semibold"><?php echo $pokemon->getName() ?? "" ?></p>
                     </div>
@@ -51,7 +51,7 @@ if($_SESSION['csrf_token'] !== $data['csrf_token']) {
                             </form>
                             <a href="/modify-pokemon?id=<?php echo $pokemon->getId() ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                class="group-hover/card:text-white text-blue-700  group-hover/card:hover:text-gray-800 lucide lucide-square-pen"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                class="group-hover/card:text-white text-blue-600  group-hover/card:hover:text-gray-800 lucide lucide-square-pen"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
                                     <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/>
                                 </svg>
                             </a>
