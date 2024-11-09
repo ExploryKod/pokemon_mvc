@@ -20,9 +20,7 @@ class UpdatePokemonsController extends createPage {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (isset($_POST['update-pokemon'])) {
-                var_dump('enter update');
                 $pokemonName =  filter_input(INPUT_POST, "pokemon-name");
-                $pokemonFormImage =  filter_input(INPUT_POST, "image");
                 $pokemonFormId =  filter_input(INPUT_POST, "pokemon-id");
                 $pokemonManager = new PokemonManager($this->conn);
                 $updateManager = new UpdatePokemonsManager($this->conn);
