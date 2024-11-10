@@ -3,6 +3,7 @@
     die();
 }
 ?>
+    
 <footer class="bg-teal-500 text-white text-sm p-2.5">
     <div class="container mx-auto max-w-[1200px]">
         <div class="mainRow flex flex-col-reverse lg:flex-row gap-y-5 lg:justify-between lg:items-center">
