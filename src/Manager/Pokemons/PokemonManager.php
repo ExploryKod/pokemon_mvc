@@ -44,21 +44,10 @@ class PokemonManager extends BaseManager
     public function getPokemonByName(string $pokemonName): ?Pokemons
     {
         $getPokemonReq = $this->pdo->prepare("SELECT id, image, name, type, extension FROM pokemons WHERE name = :pokemonName");
-        $getPokemonReq->execute(['name' => $pokemonName]);
+        $getPokemonReq->execute(['pokemonName' => $pokemonName]);
 
         $data = $getPokemonReq->fetch(\PDO::FETCH_ASSOC);
         return $data ? new Pokemons($data) : null;
-    }
-
-     /**
-     * @param int $id
-     * @return void
-     */
-    public function deletePokemonById(int $pokemon_id){
-        $dropPostReq = $this->pdo->prepare("DELETE FROM pokemons WHERE id = :pokemon_id");
-        $dropPostReq->execute([
-            'pokemon_id' => $pokemon_id
-        ]);
     }
 }
 ?>

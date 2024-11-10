@@ -19,17 +19,17 @@ class CreatePokemonController {
     public function createNewPokemon()
     {      
         if (empty($_POST['pokemon-name'])) {
-            header("Location: /create-pokemon?error=pokemonNameNotFilled");
+            header("Location: /create-pokemon?error=pokemon-name-not-filled&item=nom");
             exit();
         }
 
         if (empty($_POST['pokemon-type'])) {
-            header("Location: /create-pokemon?error=pokemonTypeNotFilled");
+            header("Location: /create-pokemon?error=pokemon-type-not-filled&item=type");
             exit();
         }
     
         if (empty($_POST['pokemon-image'])) {
-            header("Location: /create-pokemon?error=pokemonImageNotFilled");
+            header("Location: /create-pokemon?error=pokemon-image-not-filled&item=image");
             exit();
         }
         
@@ -41,7 +41,7 @@ class CreatePokemonController {
         try {
           $pokemonAlreadyThere = $this->pokemonManager->getPokemonByName($pokemonName);
           if($pokemonAlreadyThere) {
-            header("Location: /create-pokemon?error=pokemonAlreadyExists&name=". $pokemonName);
+            header("Location: /create-pokemon?error=pokemon-exist&item=". $pokemonName);
             exit();
           }
         } catch(Exception $e) {
@@ -51,8 +51,9 @@ class CreatePokemonController {
         }
 
         try {
+            $pokemonItemName = $pokemonName ? $pokemonName : "";
             $pokemonNewId = $this->createPokemonManager->insertNewPokemon($pokemonImage, $pokemonName, $pokemonType, 'png');
-            header("Location: /create-pokemon?success=pokemonCreated&id=" . $pokemonNewId);
+            header("Location: /create-pokemon?success=pokemon-created&item=" . $pokemonItemName . "&id=" . $pokemonNewId);
             exit();
         } catch (Exception $e) {
             error_log($e->getMessage());

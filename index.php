@@ -5,8 +5,8 @@ ini_set('display_errors', 1);
 require_once 'vendor/autoload.php';
 use Pokemon\Factory\PDOFactory;
 use Pokemon\Controllers\createPage;
-use Pokemon\Controllers\Pokemons\ReadPokemons;
-use Pokemon\Controllers\Pokemons\DeletePokemons;
+use Pokemon\Controllers\Pokemons\ReadPokemonsController;
+use Pokemon\Controllers\Pokemons\DeletePokemonsController;
 use Pokemon\Controllers\Pokemons\UpdatePokemonsController;
 use Pokemon\Controllers\Pokemons\CreatePokemonController;
 
@@ -33,13 +33,21 @@ $availableImages = [
     "pikachu" => "Pikachu", 
     "bulbizarre" => "Bulbizarre", 
     "carapuce" => "Carapuce", 
-    "florizarre" => "Florizarre"
+    "florizarre" => "Florizarre",
+    "dracaufeu" => "Dracaufeu",
+    "evoli" => "Evoli",
+    "octillery" => "Octillery",
+    "papilusion" => "Papilusion",
+    "pikachu" => "Pikachu",
+    "pyroli" => "Piroli",
+    "sabelette" => "Sabelette",
+    "tyranocif" => "Tyranocif"
 ];
 
 $mainController = new createPage();
-$pokemons = new ReadPokemons($pdoConn);
+$pokemons = new ReadPokemonsController($pdoConn);
 $updatePokemon = new UpdatePokemonsController($pdoConn);
-$deletePokemons = new DeletePokemons($pdoConn);
+$deletePokemons = new DeletePokemonsController($pdoConn);
 $createPokemon = new CreatePokemonController($pdoConn);
 
 try {
@@ -77,8 +85,8 @@ try {
             $_SESSION['csrf_token'] = $mainController->generateCsrfToken();
             $selectedPokemonId = $_GET['id'] ?? "";
             $pageData = [
-                "bodyId" => 'route-modify',
-                "page_css_id" => 'modify-pokemon',
+                "bodyId" => 'route-create',
+                "page_css_id" => 'create-pokemon',
                 "meta" => [
                     "page_title" => 'Pokemon MVC',
                     "page_description" => 'Refactoring to fit MVC architecture',
@@ -88,7 +96,8 @@ try {
                 "siteUrl" => $siteUrl || "localhost:8080",
                 "data" => [
                     "csrf_token" => $_SESSION['csrf_token'],
-                    "availableImages" => $availableImages
+                    "availableImages" => $availableImages,
+                    "pokemon" => $pokemons->getPokemonById(intval($selectedPokemonId))
                 ]
             ];
             $mainController->setPageData($pageData);
@@ -149,12 +158,7 @@ try {
             $mainController->setPageData($pageData);
             break;
         case 'delete-pokemon':
-            if($_POST['id']) {
-                $deletePokemons->deleteById();
-            } else {
-                header('Location: /?error="pokemon-no-id');
-                exit();
-            }
+            $deletePokemons->deletePokemonById();
             break;
         default:
             throw new Exception("La page n'existe pas");

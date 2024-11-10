@@ -851,6 +851,10 @@ video {
   justify-content: space-between;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-24 {
   gap: 6rem;
 }
@@ -877,6 +881,10 @@ video {
 
 .\!overflow-auto {
   overflow: auto !important;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .rounded {
@@ -1045,6 +1053,10 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1072,6 +1084,10 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.\!font-bold {
+  font-weight: 700 !important;
 }
 
 .font-bold {
@@ -1144,8 +1160,8 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.underline {
-  text-decoration-line: underline;
+.no-underline {
+  text-decoration-line: none;
 }
 
 .shadow {
@@ -1726,11 +1742,6 @@ main {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
-.hover\:text-red-800:hover {
-  --tw-text-opacity: 1;
-  color: rgb(153 27 27 / var(--tw-text-opacity));
-}
-
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1743,6 +1754,21 @@ main {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.group\/card:hover .group-hover\/card\:border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.group\/card:hover .group-hover\/card\:bg-gray-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+}
+
+.group\/card:hover .group-hover\/card\:bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .group\/card:hover .group-hover\/card\:text-white {
