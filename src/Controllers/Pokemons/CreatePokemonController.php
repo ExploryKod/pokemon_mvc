@@ -37,6 +37,7 @@ class CreatePokemonController {
         $pokemonName = htmlspecialchars(trim($_POST['pokemon-name']));
         $pokemonImage = htmlspecialchars(trim($_POST['pokemon-image']));
         $pokemonType = htmlspecialchars(trim($_POST['pokemon-type']));
+        $pokemonDescription = htmlspecialchars(trim($_POST['pokemon-description']));
         
         try {
           $pokemonAlreadyThere = $this->pokemonManager->getPokemonByName($pokemonName);
@@ -52,7 +53,7 @@ class CreatePokemonController {
 
         try {
             $pokemonItemName = $pokemonName ? $pokemonName : "";
-            $pokemonNewId = $this->createPokemonManager->insertNewPokemon($pokemonImage, $pokemonName, $pokemonType, 'png');
+            $pokemonNewId = $this->createPokemonManager->insertNewPokemon($pokemonImage, $pokemonName, $pokemonType, $pokemonDescription, 'png');
             header("Location: /create-pokemon?success=pokemon-created&item=" . $pokemonItemName . "&id=" . $pokemonNewId);
             exit();
         } catch (Exception $e) {

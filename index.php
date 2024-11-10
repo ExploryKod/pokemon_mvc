@@ -160,6 +160,25 @@ try {
         case 'delete-pokemon':
             $deletePokemons->deletePokemonById();
             break;
+        case 'pokemon-description':
+            $selectedPokemonId = $_GET['id'];
+            $pageData = [
+                "bodyId" => $page,
+                "page_css_id" => 'page-description',
+                "meta" => [
+                    "page_title" => 'Description - Pokemon MVC',
+                    "page_description" => 'Descripton du Pokemon',
+                ],
+                "data" => [
+                    "csrf_token" => $_SESSION['csrf_token'],
+                    "pokemon" => $pokemons->getPokemonById(intval($selectedPokemonId)),
+                    "availableImages" => $availableImages
+                ],
+                "view" => 'views/pokemons/description.view.php',
+                "template" => "views/templates/template.php",
+                "siteUrl" => $siteUrl
+            ];
+            $mainController->setPageData($pageData);
         default:
             throw new Exception("La page n'existe pas");
     }
