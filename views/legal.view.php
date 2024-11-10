@@ -40,7 +40,13 @@
             <br />En outre,  l'éditeur ne peut garantir que son fonctionnement sera exempt d’interruptions ou d’erreurs.
           </p>
         </section>
-
+        <section class="my-5">
+          <h2 class="mb-2 font-semibold text-gray-700 text-xl">Droit applicable et attribution de juridiction :</h2>
+          <p class="text-gray-600">
+          Tout litige en relation avec l’utilisation de ce site web est soumis au droit français. 
+          <br />Il est fait attribution exclusive de juridiction aux tribunaux compétents de Paris.
+          </p>
+        </section>
       </div>
     </div>
 </main>
