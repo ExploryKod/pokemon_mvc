@@ -3,33 +3,33 @@
     die();
 } ?>
 <main class="min-h-screen mx-auto max-w-[1200px]">
-  <div className="mx-auto px-5 container" style="margin-top:40px">
-      <div className="mx-auto max-w-[800px] bg-white shadow-md mx-auto p-6 rounded-lg max-w-4xl">
-        <h1 className="mb-4 font-bold text-3xl text-gray-800">Fausses Mentions Légales</h1>
+  <div class="mx-auto px-5 container">
+      <div class="mx-auto max-w-[800px] bg-white shadow-md mx-auto p-6 rounded-lg max-w-4xl">
+        <h1 class="mb-4 font-bold text-3xl text-gray-800">Mentions Légales</h1>
 
-        <section className="my-5" style="margin-top:20px">
-          <h2 className="mb-5 font-semibold text-gray-700 text-xl">Éditeur du site</h2>
-          <p className="text-gray-600">
-            <strong>MVC Pokemon</strong>, société de présentation des pokemon avec une architecture MVC, est une société SAS au capital social de 0 euros, dont le siège social est situé au
-            <span className="inline not-italic">nulle part</span>.
-            <br />Elle est immatriculée au Registre du Commerce et des Sociétés de nulle part sous le numéro 000000.
-          </p>
-          <p className="mt-2 text-gray-600">
-            Téléphone : <a href="tel:+0000870078" className="text-blue-500 hover:underline">+00 00 87 00 78</a>
+        <section class="my-5">
+          <h2 class="mb-5 font-semibold text-gray-700 text-xl">Éditeur du site</h2>
+          <p>Amaury Franssen, dans le cadre d'un examen pour l' 
+            <a class="text-purple-500 hover:underline" href="https://www.ynov.com/formations/informatique?_gl=1*7rx19r*_up*MQ..&gclid=Cj0KCQiA0MG5BhD1ARIsAEcZtwRwT8iLb0JAZ7UAaUPGeDUTUGz8Fb8fPlYavBZCOTa-vaJAFo9OSusaAnLpEALw_wcB">école Ynov</a> - France</p>
+          <p class="mt-2 text-gray-600">
+            <strong>Email</strong> : <a href="mailto:amaury.franssen@ynov.com" class="text-purple-500 hover:underline">amaury.franssen@ynov.com</a>
           </p>
         </section>
 
-        <section className="my-5">
-          <h2 className="mb-2 font-semibold text-gray-700 text-xl">Directeur de la publication</h2>
-          <p className="text-gray-600">Amaury Franssen </p>
-          <a href="mailto:">pokemon-fake@yuamail.com</a>
+        <section class="my-5">
+          <h2 class="mb-2 font-semibold text-gray-700 text-xl">Directeur de la publication</h2>
+          <p class="text-gray-600">Amaury Franssen </p>
+          <a class="text-purple-500 hover:underline" href="mailto:amaury.franssen@ynov.com">amaury.franssen@ynov.com</a>
         </section>
 
-        <section className="my-5">
-          <h2 className="mb-2 font-semibold text-gray-700 text-xl">Hébergement</h2>
-          <p className="text-gray-600">
-            Ce site n'est hébergé null part à ce stade
+        <section class="my-5">
+          <h2 class="mb-2 font-semibold text-gray-700 text-xl">Hébergement</h2>
+          <p class="text-gray-600">
+            Ce site est hébergé par la société <a class="text-purple-500 hover:underline" href="https://render.com">Render.com</a>.
           </p>
+          <p><strong>Adresse :</strong> Address: 525 Brannan Street Ste 300 San Francisco CA 94107.</p>
+          <p><strong>Téléphone (US):</strong>  <a href="tel:+4153198186">415-319-8186</a>
+          <p><strong>Email :</strong> <a class="text-purple-500 hover:underline" href="mailto:legal@render.com">legal@render.com</a>
         </section>
 
         <section class="my-5">
