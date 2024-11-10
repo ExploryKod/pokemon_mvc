@@ -1,6 +1,6 @@
-import { $ } from '../common/variables'
+const $ = jQuery.noConflict()
 
-export const menuBurger = () => {
+const menuBurger = () => {
   $('.burger-menu__button, .header-menu li a').on('click', function () {
     $('body').toggleClass('menu-opened')
   })
@@ -9,3 +9,7 @@ export const menuBurger = () => {
     $('body').toggleClass('modal-open')
   })
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  menuBurger();
+});

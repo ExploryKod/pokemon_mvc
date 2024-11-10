@@ -16,7 +16,7 @@ if(!isset($_GET['id'])) {
     $pokemonImage = "photo-camera";
     $pokemonExtension = "png";
     $availableImages = $data['availableImages'] ?? [];
-    $dimensionWrapperImg = "w-24 h-24 rounded-full border border-1 border-purple-700";
+    $dimensionWrapperImg = "w-24 h-24 rounded-full border border-1 border-purple-700 ";
     $dimensionImg = "w-14 h-14";
 }
 
@@ -42,17 +42,17 @@ if(isset($_GET['id']) && ($_GET['id'] !== null && $_GET['id'] !== "")) {
                 <article id="pokemon-demo-card" class="group/card relative w-[350px] h-[350px] bg-white flex flex-col justify-center items-center 
                 p-5 rounded-lg shadow-md transition-colors duration-300 ease-in hover:bg-yellow-500"
                     data-title="<?php echo  $pokemonName ?>">
-                    <div class="top-bar absolute w-1/2 h-1 bg-blue-600 top-0 left-1/2 transform -translate-x-1/2 rounded-b-lg"></div>
+                    <div class="top-bar absolute w-1/2 h-1 bg-purple-700 top-0 left-1/2 transform -translate-x-1/2 rounded-b-lg "></div>
                     <div class="content flex flex-col justify-center items-center">
-                        <div class="image-wrapper <?= $dimensionWrapperImg ?> flex flex-col items-center justify-center">
+                        <div class="image-wrapper group-hover/card:border-white group-hover/card:bg-white <?= $dimensionWrapperImg ?>  flex flex-col items-center justify-center">
                             <img src="<?php echo '/public/img/pokemons/' . $pokemonImage . '.' . $pokemonExtension  ?>"
                                 alt="<?php echo $pokemonName ?? "placeholder"; ?>"
-                                class="<?= $dimensionImg ?> overflow-hidden object-contain object-center">
+                                class="<?= $dimensionImg ?> overflow-hidden object-contain object-center group-hover/card:bg-white">
                         </div>
-                        <p id="pokemon-card-name" class="text-primary mt-2 mb-3 text-sm font-semibold"><?php echo $pokemonName ?? "" ?></p>
+                        <p id="pokemon-card-name" class="text-primary mt-2 mb-3 text-sm font-semibold group-hover/card:text-white "><?php echo $pokemonName ?? "" ?></p>
                     </div>
                     <div class="box-footer mt-1">
-                        <p id="pokemon-card-type" class="text-center"><?php echo $pokemonType ?? "" ?></p>
+                        <p id="pokemon-card-type" class="text-center group-hover/card:text-white"><?php echo $pokemonType ?? "" ?></p>
                     </div>
                 </article>
                 <aside class="flex flex-col h-[350px]">

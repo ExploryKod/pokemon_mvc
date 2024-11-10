@@ -10,7 +10,7 @@ class CreatePokemonManager extends BaseManager {
      * @param array $args
      * @return int The id of the new pokemon we just created
      */
-    public function insertNewPokemon(string $pokemonImage, string $pokemonName, string $pokemonType, string $extension='png'): int
+    public function insertNewPokemon(string $pokemonImage, string $pokemonName, string $pokemonType, string $extension): int
     {
         $query = $this->pdo->prepare("INSERT INTO pokemons (image, name, type, extension) VALUES (:image, :name, :type, :extension)");
         $query->bindValue("image", $pokemonImage, \PDO::PARAM_STR);

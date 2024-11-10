@@ -27,7 +27,7 @@ if($_SESSION['csrf_token'] !== $data['csrf_token']) {
                         <div class="image-wrapper">
                             <img src="<?php echo 'public/img/pokemons/' . $pokemon->getImage() . '.png' ?? 'pikachu' . '.png'; ?>"
                                 alt="<?php echo $pokemonName ?? "pikachu"; ?>"
-                                class="w-24 h-24 bg-purple-200 border border-2 p-2 border-purple-700 rounded-full object-contain object-center">
+                                class="w-24 h-24 bg-purple-200 border border-2 p-2 border-purple-700 rounded-full group-hover/card:border-white  group-hover/card:bg-white  object-contain object-center">
                         </div>
                         <p class="text-primary mt-2 mb-3 text-sm font-semibold"><?php echo $pokemon->getName() ?? "" ?></p>
                     </div>
@@ -37,6 +37,7 @@ if($_SESSION['csrf_token'] !== $data['csrf_token']) {
                             <form class="flex flex-col items-center justify-center" action="/delete-pokemon?id=<?= $pokemon->getId() ?>" method="POST">
                                 <input type="hidden" name="csrf_token" value="<?php echo $data['csrf_token'] ?>">
                                 <input type="hidden" name="id" value="<?php echo $pokemon->getId() ?>">
+                                <input type="hidden" name="pokemon-name" value="<?php echo $pokemon->getName() ?>">
                                 <button class="inline border-none bg-transparent p-0" type="submit">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
                                         fill="none" stroke="currentColor" stroke-width="2" 

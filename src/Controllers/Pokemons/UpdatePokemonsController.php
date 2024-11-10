@@ -8,10 +8,12 @@ use Pokemon\Manager\Pokemons\UpdatePokemonsManager;
 
 class UpdatePokemonsController extends createPage {
 
-    private PDOFactory $conn;
+    private PokemonManager $pokemonManager;
+    private UpdatePokemonsManager $updatePokemonsManager;
 
-    public function __construct($conn) {
-        $this->conn = $conn;
+    public function __construct(PDOFactory $conn) {
+        $this->pokemonManager = new PokemonManager($conn);
+        $this->updatePokemonsManager = new UpdatePokemonsManager($conn);
     }
 
     public function updatePokemon()
@@ -22,9 +24,7 @@ class UpdatePokemonsController extends createPage {
             if (isset($_POST['update-pokemon'])) {
                 $pokemonName =  filter_input(INPUT_POST, "pokemon-name");
                 $pokemonFormId =  filter_input(INPUT_POST, "pokemon-id");
-                $pokemonManager = new PokemonManager($this->conn);
-                $updateManager = new UpdatePokemonsManager($this->conn);
-                $pokemon = $pokemonManager->getPokemonById(intval($pokemonFormId));
+                $pokemon = $this->pokemonManager->getPokemonById(intval($pokemonFormId));
 
                 if($pokemon) {
                     $args = [];
@@ -41,7 +41,7 @@ class UpdatePokemonsController extends createPage {
                     }
                     
                     try {
-                        $updateManager->updatePokemon($pokemonFormId, $pokemonName, $args);
+                        $this->updatePokemonsManager->updatePokemon($pokemonFormId, $pokemonName, $args);
                     } catch (\Exception $e) {
                         $pageData = [
                             "bodyId" => 'route-error',
