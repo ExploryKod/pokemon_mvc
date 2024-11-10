@@ -32,6 +32,7 @@ class UpdatePokemonsController extends createPage {
                         'pokemonName' => filter_input( INPUT_POST, "pokemon-name") ?? null,
                         'image' => filter_input( INPUT_POST, "image") ?? null,
                         'type' => filter_input( INPUT_POST, "type") ?? null,
+                        'description' => filter_input( INPUT_POST, "description") ?? null,
                         'extension' => 'png'
                     ];
                     foreach($updateFeed as $key => $value) {

@@ -76,6 +76,10 @@ if(isset($_GET['id']) && ($_GET['id'] !== null && $_GET['id'] !== "")) {
                                 <?php endforeach;?>
                             </select>
                         </div>
+                        <div class="mb-3">
+                            <label for="description" class="block text-sm font-medium text-gray-700">Description courte</label>
+                            <input type="text" id="description" name="pokemon-description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
                         <div class="flex flex-col mb-2">
                             <button type="submit" name="create-pokemon"
                             class="block justify-center items-center px-5 py-3 border border-transparent text-sm 

@@ -35,7 +35,14 @@ class UpdatePokemonsManager extends BaseManager {
                             $image = $args['image'];
                             $query = $this->pdo->prepare("UPDATE pokemons SET image = :image WHERE id=:pokemonId ");
                             $query->bindValue("image", $image, \PDO::PARAM_STR);
-                            $query->bindValue("userId", $pokemonId, \PDO::PARAM_STR);
+                            $query->bindValue("pokemonId", $pokemonId, \PDO::PARAM_STR);
+                            $query->execute();
+                            break;
+                        case 'description':
+                            $image = $args['description'];
+                            $query = $this->pdo->prepare("UPDATE pokemons SET description = :description WHERE id=:pokemonId ");
+                            $query->bindValue("description", $image, \PDO::PARAM_STR);
+                            $query->bindValue("pokemonId", $pokemonId, \PDO::PARAM_STR);
                             $query->execute();
                             break;
                     }

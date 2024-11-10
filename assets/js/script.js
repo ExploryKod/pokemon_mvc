@@ -42,8 +42,39 @@ const minWidth = (value) => {
   return window.matchMedia(`(min-width: ${variables.breakpoints[value]})`).matches
 }
 
+const goToPokemonPage = () => {
+  
+  document.addEventListener('click', (e) => {
+    
+    if (e.target.closest('[id^="pokemon-delete-modal-"]')) {
+      return;
+    }
+
+    if (e.target.closest('a[href^="/modify-pokemon"]')) {
+      return;
+    }
+
+    if (e.target.closest('[data-modal-target^="pokemon-delete-modal-"]')) {
+      return;
+    }
+
+    const card = e.target.closest('.pokemon-card');
+    if (card) {
+      const dataId = card.dataset.id;
+      if (dataId) {
+        window.location.href = `pokemon-description?id=${dataId}`;
+      }
+    }
+  });
+};
+
 window.addEventListener('DOMContentLoaded', (event) => {
   const createPokemonPage = document.querySelector('.route-create');
+  const homePage = document.querySelector('.route-home');
+
+  if(homePage) {
+    goToPokemonPage()
+  }
 
   if (createPokemonPage) {
     selectPokemonImg();
