@@ -51,7 +51,7 @@ class CreatePokemonController {
         }
 
         try {
-            $pokemonItemName = $pokemonName || "";
+            $pokemonItemName = $pokemonName ? $pokemonName : "";
             $pokemonNewId = $this->createPokemonManager->insertNewPokemon($pokemonImage, $pokemonName, $pokemonType, 'png');
             header("Location: /create-pokemon?success=pokemon-created&item=" . $pokemonItemName . "&id=" . $pokemonNewId);
             exit();

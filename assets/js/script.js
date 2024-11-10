@@ -1,16 +1,3 @@
-const $ = jQuery.noConflict()
-const variables = {
-  breakpoints: {
-      xs:0,
-      sm: 576,
-      md: 768,
-      lg: 992,
-      xl: 1200,
-      xxl: 1440,
-      fhd: 1900,
-      overfhd: 2000,
-  }
-}
 
 const selectPokemonImg = () => {
   const pokemonNameInput = document.querySelector('#create-pokemon-form #name');
@@ -56,7 +43,11 @@ const minWidth = (value) => {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  selectPokemonImg();
+  const createPokemonPage = document.querySelector('.route-create');
+
+  if (createPokemonPage) {
+    selectPokemonImg();
+  }
   putScrollbarSizeInCSSVariables()
   minWidth()
 });

@@ -13,13 +13,13 @@ function makeToast() {
   const itemPlaceHolder = getQueryParam('item') ? getQueryParam('item') : "";
 
   const messageSuccessAlerts = [
-      { 'pokemon-deleted': `Le pokemon ${itemPlaceHolder} a bien été supprimé.`},
-      { 'pokemon-created': `Le pokemon ${itemPlaceHolder} a bien été créé.`},
-      { 'pokemon-updated': `Le pokemon ${itemPlaceHolder} a bien été modifié.`}
+      { 'pokemon-deleted': `Le pokemon ${itemPlaceHolder ?? ""} a bien été supprimé.`},
+      { 'pokemon-created': `Le pokemon ${itemPlaceHolder ?? ""} a bien été créé.`},
+      { 'pokemon-updated': `Le pokemon ${itemPlaceHolder ?? ""} a bien été modifié.`}
   ];
 
   const messageErrorAlerts = [
-      { 'name-not-filled': `Un champ ${itemPlaceHolder} est resté vide.`},
+      { 'name-not-filled': `Un champ ${itemPlaceHolder ?? ""} est resté vide.`},
       { 'pokemon-exist': `Le pokemon ${itemPlaceHolder ?? ""} existe déjà`}
   ];
   

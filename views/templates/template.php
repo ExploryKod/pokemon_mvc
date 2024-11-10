@@ -32,6 +32,7 @@ die();
 <?php require_once(__DIR__ . '/partials/footer.php'); ?>
 <script src="assets/lib/jquery/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/assets/js/variables.js"></script>
 <script type="module" src="/assets/js/script.js"></script>
 <script src="/assets/js/components/menuBurger.js"></script>
 <script src="/assets/js/components/scroll.js"></script>

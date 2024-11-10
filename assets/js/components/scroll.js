@@ -1,4 +1,4 @@
-const $ = jQuery.noConflict()
+
 
 const scrollToId = () => {
   $("a[href^='#']:not([href='#'])").click(function (e) {
@@ -47,6 +47,9 @@ const scrollToAnchor = () => {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  scrollToAnchor();
+  if(window.location.hash) {
+    scrollToAnchor();
+  }
+
   scrollToId();
 });

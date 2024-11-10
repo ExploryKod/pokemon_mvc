@@ -1,4 +1,4 @@
-const $ = jQuery.noConflict()
+
 
 const menuBurger = () => {
   $('.burger-menu__button, .header-menu li a').on('click', function () {
