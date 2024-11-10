@@ -36,8 +36,8 @@
           <h2 class="mb-2 font-semibold text-gray-700 text-xl">Garantie et sécurité</h2>
           <p class="text-gray-600">
             Le contenu de ce site est édité sous réserve d’erreurs techniques et/ou typographiques, avec des photos non contractuelles.
-            <br />La société ne saurait être tenue responsable quant à l’exactitude des informations mises à disposition des utilisateurs accédant au site.
-            <br />En outre,  les éditeurs ne peuvent garantir que son fonctionnement sera exempt d’interruptions ou d’erreurs.
+            <br />L'éditeur ne saurait être tenu responsable quant à l’exactitude des informations mises à disposition des utilisateurs accédant au site.
+            <br />En outre,  l'éditeur ne peut garantir que son fonctionnement sera exempt d’interruptions ou d’erreurs.
           </p>
         </section>
 
